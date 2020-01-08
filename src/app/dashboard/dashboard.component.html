@@ -1,0 +1,84 @@
+<div class="container-fluid">
+    <div class="row chart-area" id="chartPanel" [ngbCollapse]="isCollapsed">
+        <div class="col-4">
+            <h6 class="top-labels" >Products</h6>
+            <ul class="list-group" style="font-weight: 500;">
+                <li class="list-group-item d-flex justify-content-between align-items-center bg-teal ">
+                    <span class="ss" style="color:white;width: 50%;">My Leads
+                    </span>
+                    <span class="badge bg-transparent badge-pill" style="color: rgb(255, 255, 255);
+                    font-weight: 400;">Today</span>
+                    <span class="badge bg-transparent badge-pill" style="color: rgb(255, 255, 255);;
+                    font-weight: 400;">This<br />Month</span>
+                    <span class="badge bg-transparent badge-pill" style="color: rgb(255, 255, 255);;
+                    font-weight: 400;">Till<br />Date</span>
+                  </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center color-gray">
+                <span class="ss color-teal">Personal Loan</span>
+                <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">12</span>
+                <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">34</span>
+                <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">45</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center color-gray">
+                <span class="ss color-teal">Credit Card</span>
+                <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">05</span>
+                <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">47</span>
+                <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">32</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center color-gray">
+                <span class="ss color-teal">Auto Loan</span>
+                <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">90</span>
+                <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">03</span>
+                <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">48</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center color-gray">
+                <span class="ss color-teal">Bussiness Loan</span>
+                <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">15</span>
+                <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">67</span>
+                <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">90</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center color-gray">
+                    <span class="ss color-teal">Home Loan</span>
+                    <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">89</span>
+                    <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">34</span>
+                    <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">12</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center color-gray">
+                  <span class="ss color-teal">Loan Against Property</span>
+                  <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">45</span>
+                  <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">77</span>
+                  <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">38</span>
+                </li>
+              </ul>
+        </div>
+        <div class="col-4">
+            <div [chart]="chart"></div>
+        </div>
+        <div class="col-4" style="text-align: center;;">
+            <h6 class="top-labels" >Quick Links</h6>
+            <ul class="list-group">
+                <li class="list-group-item color-teal">CREATE NEW LEAD</li>
+                <li class="list-group-item color-teal">CREATE NEW CLIENT</li>
+                <li class="list-group-item color-teal">CREAT NEW NOTIFICATION</li>
+                <li class="list-group-item color-teal">MANAGE SETTINGS</li>
+                <li class="list-group-item color-teal">CREATE NEW LEAD</li>
+                <li class="list-group-item color-teal">CREATE NEW CLIENT</li>
+                <li class="list-group-item color-teal">CREATE NEW CLIENT</li>
+              </ul>
+        </div>
+    </div>
+
+    
+    <div class="row" style="padding-top:14px;">
+        <div class="col">
+
+        </div>
+        <div class="col-10">
+
+        </div>
+        <div class="col" style="text-align: right;">
+            <fa-icon class="color-teal" [icon]="faArrowCircleUp" (click)="isCollapsed = !isCollapsed"
+            [attr.aria-expanded]="!isCollapsed" aria-controls="chartPanel" size="2x"></fa-icon>
+        </div>
+    </div>
+</div>

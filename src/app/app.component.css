@@ -1,0 +1,18 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .login-form{
+    padding: 20px;
+    border-radius: 5px;
+    margin-left: 32%;
+    margin-right: 32%;
+    color: white;
+    padding-bottom: 45px;
+  }

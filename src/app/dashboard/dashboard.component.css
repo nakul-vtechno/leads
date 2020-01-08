@@ -1,0 +1,23 @@
+.top-labels{
+    padding-bottom: 32px;
+    padding-top: 10px;
+    text-align: center;
+    color: #495057;
+    font-size: 18px;
+    fill: #495057;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif;
+}
+
+.ss{
+    width: 46%;
+    font-weight: 400;
+}
+
+.chart-area{
+    background: #f8f9fa;
+    padding-bottom: 30px;
+    background: #f8f9fa;
+    -webkit-box-shadow: 0px 10px 19px -13px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 10px 19px -13px rgba(0,0,0,0.75);
+    box-shadow: 0px 10px 19px -13px rgba(0,0,0,0.75);
+}
