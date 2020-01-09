@@ -1,0 +1,73 @@
+<div class="row" style="padding-top:14px;">
+    <div class="col-12" style="text-align: left;">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col" style="text-align: center;">Lead Number</th>
+                <th scope="col" sortable="name" (sort)="onSort($event)">Product</th>
+                <th scope="col" sortable="area" (sort)="onSort($event)">Customer Name</th>
+                <th scope="col" sortable="population" (sort)="onSort($event)">Customer number</th>
+                <th scope="col" sortable="name" (sort)="onSort($event)">Product Value</th>
+                <th scope="col" sortable="name" (sort)="onSort($event)">Ceation Date</th>
+                <th scope="col" sortable="name" (sort)="onSort($event)">Last Updated On</th>
+                <th scope="col" sortable="name" (sort)="onSort($event)">Status</th>
+                <th scope="col" sortable="name" (sort)="onSort($event)">Actions</th>
+                <th scope="col" sortable="name" (sort)="onSort($event)" style="text-align: center;">Select All</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let lead of leads, let i=index" >
+                    <td style="text-align: center;">
+                        {{lead.leadId}}
+                    </td>
+                    <td>
+                        <span class="color-pink" (click)="open(content)">{{lead.productWanted}} </span>
+                    </td>
+                    <td>
+                        <span [ngbTooltip]="tipContent" (shown)="updateClientTooltip(lead.customerName)">{{lead.customerName}} </span>
+                    </td>
+                    <td>
+                        {{lead.customerNumber}}
+                    </td>
+                    <td>
+                        {{lead.requiredProductValue}}
+                    </td>
+                    <td>
+                        {{lead.leadCreationDate}}
+                    </td>
+                    <td>
+                        {{lead.lastStatusChangeDate}}
+                            
+                    </td>
+                    <td>
+                        {{lead.currentStatus}}
+                    </td>
+                    <td>
+                        actions
+                    </td>
+                    <td style="text-align: center;">
+                        <mat-checkbox></mat-checkbox>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+       
+    </div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        "This is demo content"
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+</ng-template>
+
+<ng-template #tipContent>Hello, <b>{{tooltipClientInfo}}</b>!</ng-template>
