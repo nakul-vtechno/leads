@@ -28,13 +28,15 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ChartModule } from 'angular-highcharts';
+import { CommonModule } from '@angular/common';
+import { CommonUiModule } from './commonui/commonui.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     DashboardComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,7 +58,9 @@ import { ChartModule } from 'angular-highcharts';
     NgbProgressbarModule,
     HttpClientModule,
     ChartModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    CommonModule,
+    CommonUiModule
   ],
   providers: [],
   bootstrap: [AppComponent]
