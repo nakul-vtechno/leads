@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
   public clients: Array<object>;
   public chart: any;
   public chartOptions: any;
+  public isCollapsed = true; 
   public faArrowCircleUp = faArrowCircleUp;
   public seriesLeadStatus = {
     'Verification Pending' : 0,
@@ -92,22 +93,22 @@ export class DashboardComponent implements OnInit {
 }
   public prepareLeadsChart() {
     this.leads.forEach((item) => {
-      if (item.currentStatus === 'Verification Pending') {
+      if (item['currentStatus'] === 'Verification Pending') {
         this.seriesLeadStatus['Verification Pending'] = this.seriesLeadStatus['Verification Pending'] + 1;
       }
-      if (item.currentStatus === 'Verification Done') {
+      if (item['currentStatus'] === 'Verification Done') {
         this.seriesLeadStatus['Verification Done'] = this.seriesLeadStatus['Verification Pending'] + 1;
       }
-      if (item.currentStatus === 'Document Pending') {
+      if (item['currentStatus'] === 'Document Pending') {
         this.seriesLeadStatus['Document Pending'] = this.seriesLeadStatus['Verification Pending'] + 1;
       }
-      if (item.currentStatus === 'Case Logged in') {
+      if (item['currentStatus'] === 'Case Logged in') {
         this.seriesLeadStatus['Case Logged in'] = this.seriesLeadStatus['Verification Pending'] + 1;
       }
-      if (item.currentStatus === 'Case Approved') {
+      if (item['currentStatus'] === 'Case Approved') {
         this.seriesLeadStatus['Case Approved'] = this.seriesLeadStatus['Verification Pending'] + 1;
       }
-      if (item.currentStatus === 'Case Disbursed') {
+      if (item['currentStatus'] === 'Case Disbursed') {
         this.seriesLeadStatus['Case Disbursed'] = this.seriesLeadStatus['Verification Pending'] + 1;
       }
     });
