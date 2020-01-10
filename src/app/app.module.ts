@@ -22,6 +22,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import {MatCardModule} from '@angular/material/card';
 
 import { MatNativeDateModule, MatListModule } from '@angular/material';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -30,6 +31,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ChartModule } from 'angular-highcharts';
 import { CommonModule } from '@angular/common';
 import { CommonUiModule } from './commonui/commonui.module';
+
+import {TooltipModule} from 'primeng/tooltip';
+import {NgxPopperModule} from 'ngx-popper';
 
 @NgModule({
   declarations: [
@@ -55,12 +59,16 @@ import { CommonUiModule } from './commonui/commonui.module';
     MatProgressBarModule,
     MatNativeDateModule,
     MatListModule,
+    MatCardModule,
     NgbProgressbarModule,
     HttpClientModule,
     ChartModule,
     FontAwesomeModule,
     CommonModule,
-    CommonUiModule
+    CommonUiModule,
+    TooltipModule,
+    NgxPopperModule.forRoot({placement: 'bottom'})
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
