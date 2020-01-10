@@ -1,4 +1,4 @@
-<div class="row" style="padding-top:14px;">
+<div class="row" style="padding-top:14px;font-size: 14px;">
     <div class="col-12" style="text-align: left;">
         <table class="table table-striped">
             <thead>
@@ -24,7 +24,9 @@
                         <span class="color-pink" (click)="open(content)">{{lead.productWanted}} </span>
                     </td>
                     <td>
-                        <span [ngbTooltip]="tipContent" (shown)="updateClientTooltip(lead.customerName)">{{lead.customerName}} </span>
+                        <span placement="top"[ngbPopover]="popContent" [popoverTitle]="popTitle" (click)="onPopperShowClientDetails(lead)"
+                        >{{lead.customerName}} </span>
+                        
                     </td>
                     <td>
                         {{lead.customerNumber}}
@@ -70,4 +72,42 @@
     </div>
 </ng-template>
 
-<ng-template #tipContent>Hello, <b>{{tooltipClientInfo}}</b>!</ng-template>
+<!-- <ng-template #tipContent>Hello, <b>{{popperShowClientDetails | json}}</b>!</ng-template> -->
+
+<ng-template #popContent>
+    <!-- Hello, <b>{{popperShowClientDetails | json}}</b>! -->
+    <div class="row" style="border-bottom: 1px solid white;">
+        <div class="col-6" style="font-weight:600;">Customer Name</div>
+        <!-- <div class="col-4" style="text-align: center;">|</div> -->
+        <div class="col-6" style="text-align: right;">{{popperShowClientDetails['customerName']}}</div>
+    </div>
+    <div class="row" style="border-bottom: 1px solid white;">
+        <div class="col-6" style="font-weight:600;">Customer Mobile No.</div>
+        <!-- <div class="col-4" style="text-align: center;">|</div> -->
+        <div class="col-6" style="text-align: right;">{{popperShowClientDetails['customerNumber']}}</div>
+    </div>
+    <div class="row" style="border-bottom: 1px solid white;">
+        <div class="col-6" style="font-weight:600;">Employment Type</div>
+        <!-- <div class="col-4" style="text-align: center;">|</div> -->
+        <div class="col-6" style="text-align: right;">{{popperShowClientDetails['employementType']}}</div>
+    </div>
+    <div class="row" style="border-bottom: 1px solid white;">
+        <div class="col-6" style="font-weight:600;">Company/Bussiness</div>
+        <!-- <div class="col-4" style="text-align: center;">|</div> -->
+        <div class="col-6" style="text-align: right;">{{popperShowClientDetails['companyBusinessName']}}</div>
+    </div>
+    <div class="row" style="border-bottom: 1px solid white;">
+        <div class="col-6" style="font-weight:600;">Gross Income</div>
+        <!-- <div class="col-4" style="text-align: center;">|</div> -->
+        <div class="col-6" style="text-align: right;">{{popperShowClientDetails['monthlyGrossIncome']}}</div>
+    </div>
+    <div class="row">
+        <div class="col-6" style="font-weight:600;">Net Income</div>
+        <!-- <div class="col-4" style="text-align: center;">|</div> -->
+        <div class="col-6" style="text-align: right;">{{popperShowClientDetails['monthlyNetIncome']}}</div>
+    </div>
+
+
+</ng-template>
+<ng-template #popTitle>Customer Details</ng-template>
+

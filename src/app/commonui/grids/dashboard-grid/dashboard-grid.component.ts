@@ -4,13 +4,14 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-dashboard-grid',
   templateUrl: './dashboard-grid.component.html',
-  styleUrls: ['./dashboard-grid.component.css']
+  styleUrls: ['./dashboard-grid.component.scss']
 })
 export class DashboardGridComponent implements OnInit {
 
   @Input() leads;
   closeResult: string;
   tooltipClientInfo: string;
+  popperShowClientDetails: object;
   
   constructor(private modalService: NgbModal) { }
 
@@ -24,6 +25,11 @@ export class DashboardGridComponent implements OnInit {
 
   updateClientTooltip(name) {
     this.tooltipClientInfo = name;
+  }
+
+  onPopperShowClientDetails(lead){
+    console.log('10Jan => ', lead)
+    this.popperShowClientDetails = lead;
   }
 
   open(content) {
