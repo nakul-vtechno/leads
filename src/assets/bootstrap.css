@@ -6044,11 +6044,11 @@
   }
   
   .tooltip-inner {
-    max-width: 200px;
+    max-width: 300px;
     padding: 0.25rem 0.5rem;
     color: #fff;
-    text-align: center;
-    background-color: #000;
+    text-align: left;
+    background-color: #ff4081;
     border-radius: 0.25rem;
   }
   
@@ -6058,7 +6058,8 @@
     left: 0;
     z-index: 1060;
     display: block;
-    max-width: 276px;
+    min-width: 400px;
+    max-width: auto;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-style: normal;
     font-weight: 400;
@@ -6108,13 +6109,13 @@
   .bs-popover-top > .arrow::before, .bs-popover-auto[x-placement^="top"] > .arrow::before {
     bottom: 0;
     border-width: 0.5rem 0.5rem 0;
-    border-top-color: rgba(0, 0, 0, 0.25);
+    border-top-color: #ff4081;
   }
   
   .bs-popover-top > .arrow::after, .bs-popover-auto[x-placement^="top"] > .arrow::after {
     bottom: 1px;
     border-width: 0.5rem 0.5rem 0;
-    border-top-color: #fff;
+    border-top-color: #ff4081;
   }
   
   .bs-popover-right, .bs-popover-auto[x-placement^="right"] {
@@ -6131,13 +6132,13 @@
   .bs-popover-right > .arrow::before, .bs-popover-auto[x-placement^="right"] > .arrow::before {
     left: 0;
     border-width: 0.5rem 0.5rem 0.5rem 0;
-    border-right-color: rgba(0, 0, 0, 0.25);
+    border-right-color: #ff4081;
   }
   
   .bs-popover-right > .arrow::after, .bs-popover-auto[x-placement^="right"] > .arrow::after {
     left: 1px;
     border-width: 0.5rem 0.5rem 0.5rem 0;
-    border-right-color: #fff;
+    border-right-color: #ff4081;
   }
   
   .bs-popover-bottom, .bs-popover-auto[x-placement^="bottom"] {
@@ -6151,13 +6152,13 @@
   .bs-popover-bottom > .arrow::before, .bs-popover-auto[x-placement^="bottom"] > .arrow::before {
     top: 0;
     border-width: 0 0.5rem 0.5rem 0.5rem;
-    border-bottom-color: rgba(0, 0, 0, 0.25);
+    border-bottom-color: #ff4081;
   }
   
   .bs-popover-bottom > .arrow::after, .bs-popover-auto[x-placement^="bottom"] > .arrow::after {
     top: 1px;
     border-width: 0 0.5rem 0.5rem 0.5rem;
-    border-bottom-color: #fff;
+    border-bottom-color: #ff4081;
   }
   
   .bs-popover-bottom .popover-header::before, .bs-popover-auto[x-placement^="bottom"] .popover-header::before {
@@ -6185,20 +6186,22 @@
   .bs-popover-left > .arrow::before, .bs-popover-auto[x-placement^="left"] > .arrow::before {
     right: 0;
     border-width: 0.5rem 0 0.5rem 0.5rem;
-    border-left-color: rgba(0, 0, 0, 0.25);
+    border-left-color: #ff4081;
   }
   
   .bs-popover-left > .arrow::after, .bs-popover-auto[x-placement^="left"] > .arrow::after {
     right: 1px;
     border-width: 0.5rem 0 0.5rem 0.5rem;
-    border-left-color: #fff;
+    border-left-color: #ff4081;
   }
   
   .popover-header {
     padding: 0.5rem 0.75rem;
     margin-bottom: 0;
     font-size: 1rem;
-    background-color: #f7f7f7;
+    background-color: #ff4081;
+    color: #CDDC39;
+    text-align: center;
     border-bottom: 1px solid #ebebeb;
     border-top-left-radius: calc(0.3rem - 1px);
     border-top-right-radius: calc(0.3rem - 1px);
@@ -6210,7 +6213,8 @@
   
   .popover-body {
     padding: 0.5rem 0.75rem;
-    color: #212529;
+    color: white;
+    background: #ff4081;
   }
   
   .carousel {
