@@ -29,7 +29,12 @@
     "angular-highcharts": "^8.0.3",
     "highcharts": "^8.0.0",
     "jslint": "^0.12.1",
+    "lodash": "^4.17.15",
     "mdbootstrap": "^4.11.0",
+    "ngx-popper": "^7.0.0",
+    "popper.js": "^1.16.0",
+    "primeicons": "^2.0.0",
+    "primeng": "^9.0.0-rc.2",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

@@ -66,27 +66,42 @@
                 <li class="list-group-item color-teal">CREATE NEW CLIENT</li>
               </ul>
         </div>
-    </div>
-
-    
-    <div class="row" style="padding-top:14px;">
-        <div class="col">
-
+    </div>    
+    <div class="row" style="padding-top:32px;padding-bottom:15px;">
+        <!-- <div class="col-2">
+            <input id="typeahead-basic1" type="text" class="form-control" [(ngModel)]="filterProduct" placeholder="Product" (click)="onFilterClick('productWanted')" (selectItem)="onSelect($event, 'productWanted')" [ngbTypeahead]="search"/>
         </div>
-        <div class="col-10">
-
+        <div class="col-2">
+            <input id="typeahead-basic2" type="text" class="form-control" placeholder="Customer Name" [ngbTypeahead]="search" (click)="onFilterClick('customerName')" (selectItem)="onSelect($event, 'customerName')" [(ngModel)]="filterCustomerName" />
         </div>
-        <div class="col" style="text-align: right;">
+        <div class="col-2">
+            <input id="typeahead-basic" type="text" class="form-control" placeholder="Customer Mobile Number" [ngbTypeahead]="search" (click)="onFilterClick('customerNumber')" (selectItem)="onSelect($event, 'customerNumber')" [(ngModel)]="filterCustomerMobile" />
+        </div>
+        <div class="col-2">
+            <input id="typeahead-basic" type="text" class="form-control" placeholder="Creation Date" [ngbTypeahead]="search" (click)="onFilterClick('leadCreationDate')" (selectItem)="onSelect($event, 'leadCreationDate')" [(ngModel)]="filterCustomerDate" />
+        </div>
+        <div class="col-2">
+            <input id="typeahead-basic" type="text" class="form-control" placeholder="Status" [ngbTypeahead]="search" (click)="onFilterClick('currentStatus')" (selectItem)="onSelect($event, 'currentStatus')" [(ngModel)]="filterStatus" />
+        </div>
+        <div class="col-2" style="text-align: right;">
+            <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Bulk Action</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <button ngbDropdownItem>Delete</button>
+                    <button ngbDropdownItem>Download</button>
+                    <button ngbDropdownItem>Freeze</button>
+                </div>
+            </div>
+        </div> -->
+        <!-- <div class="col-1" style="text-align: right;">
             <fa-icon class="color-teal" [icon]="faArrowCircleUp" (click)="isCollapsed = !isCollapsed"
             [attr.aria-expanded]="!isCollapsed" aria-controls="chartPanel" size="2x"></fa-icon>
-        </div>
+        </div> -->
     </div>
 
     <div class="row">
         <div class="col-12">
-            <app-dashboard-grid [leads]="leads"></app-dashboard-grid>
+            <app-dashboard-grid></app-dashboard-grid>
         </div>
     </div>
-
-    
 </div>

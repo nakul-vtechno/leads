@@ -17,7 +17,7 @@ export class DashboardComponent implements OnInit {
   public clients: Array<object>;
   public chart: any;
   public chartOptions: any;
-  public isCollapsed = true; 
+  public isCollapsed = false;
   public faArrowCircleUp = faArrowCircleUp;
   public seriesLeadStatus = {
     'Verification Pending' : 0,
@@ -28,6 +28,12 @@ export class DashboardComponent implements OnInit {
     'Case Disbursed' : 0,
   };
   public leadsChardData = [];
+  public filterProduct: string;
+  public filterCustomerName: string;
+  public filterCustomerMobile: string;
+  public filterCustomerDate: string;
+  public filterStatus: string;
+  public currentFilter: string = '';
 
   constructor(
     private productService: ProductsService,

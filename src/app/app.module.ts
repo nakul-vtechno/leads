@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -33,7 +33,7 @@ import { CommonModule } from '@angular/common';
 import { CommonUiModule } from './commonui/commonui.module';
 
 import {TooltipModule} from 'primeng/tooltip';
-import {NgxPopperModule} from 'ngx-popper';
+import { NgxPopperModule } from 'ngx-popper';
 
 @NgModule({
   declarations: [
@@ -47,6 +47,7 @@ import {NgxPopperModule} from 'ngx-popper';
     AppRoutingModule,
     BrowserAnimationsModule,
     NgbModule,
+    FormsModule,
     MatAutocompleteModule,
     MatCheckboxModule,
     MatDatepickerModule,
@@ -68,7 +69,6 @@ import {NgxPopperModule} from 'ngx-popper';
     CommonUiModule,
     TooltipModule,
     NgxPopperModule.forRoot({placement: 'bottom'})
-    
   ],
   providers: [],
   bootstrap: [AppComponent]
