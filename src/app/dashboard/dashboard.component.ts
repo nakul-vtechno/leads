@@ -4,6 +4,8 @@ import { LeadsService } from './../services/leads/leads.service';
 import { ClientsService } from '../services/clients/clients.service';
 import { Chart } from 'angular-highcharts';
 import { faArrowCircleUp } from '@fortawesome/free-solid-svg-icons';
+import { AddLeadComponent } from '../commonui/add-lead/add-lead.component';
+import { UsersService } from '../services/users/users.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -33,15 +35,20 @@ export class DashboardComponent implements OnInit {
   public filterCustomerMobile: string;
   public filterCustomerDate: string;
   public filterStatus: string;
-  public currentFilter: string = '';
+  public currentFilter = '';
+  public team = [];
+  public user = null;
 
   constructor(
     private productService: ProductsService,
     private leadsService: LeadsService,
-    private clientsService: ClientsService
+    private clientsService: ClientsService,
+    private addLead: AddLeadComponent,
+    private usersService: UsersService
     ) { }
 
   ngOnInit() {
+    this.user = this.usersService.getCurrntUser();
     this.products = this.productService.getProducts().data;
     this.leads = this.leadsService.getLeads().data;
     this.prepareLeadsChart();
@@ -96,7 +103,12 @@ export class DashboardComponent implements OnInit {
       };
 
     this.chart = new Chart(this.chartOptions);
+
+    this.team = this.usersService.getTeamUsers(this.user.id, 'teamlead');
+
+    console.log('this.team => ', this.team);
 }
+
   public prepareLeadsChart() {
     this.leads.forEach((item) => {
       if (item['currentStatus'] === 'Verification Pending') {
@@ -122,5 +134,9 @@ export class DashboardComponent implements OnInit {
       console.log(key, value);
       this.leadsChardData.push({name : key, y : value});
     }
+  }
+
+  addNewLead() {
+    this.addLead.open();
   }
 }

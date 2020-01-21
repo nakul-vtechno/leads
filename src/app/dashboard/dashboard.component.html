@@ -54,17 +54,23 @@
         <div class="col-4">
             <div [chart]="chart"></div>
         </div>
-        <div class="col-4" style="text-align: center;;">
+        <div class="col-4" style="text-align: center;">
             <h6 class="top-labels" >Quick Links</h6>
-            <ul class="list-group">
-                <li class="list-group-item color-teal">CREATE NEW LEAD</li>
-                <li class="list-group-item color-teal">CREATE NEW CLIENT</li>
-                <li class="list-group-item color-teal">CREAT NEW NOTIFICATION</li>
-                <li class="list-group-item color-teal">MANAGE SETTINGS</li>
-                <li class="list-group-item color-teal">CREATE NEW LEAD</li>
-                <li class="list-group-item color-teal">CREATE NEW CLIENT</li>
-                <li class="list-group-item color-teal">CREATE NEW CLIENT</li>
-              </ul>
+            <!-- <ul class="list-group">
+                <li class="list-group-item color-teal quicklinks">CREATE NEW LEAD</li>
+                <li class="list-group-item color-teal quicklinks">CREATE NEW CLIENT</li>
+                <li class="list-group-item color-teal quicklinks">CREAT NEW NOTIFICATION</li>
+                <li class="list-group-item color-teal quicklinks">MANAGE SETTINGS</li>
+                <li (click)="addNewLead()" class="list-group-item color-teal quicklinks"><span class="quicklinks-text">CREATE NEW LEAD</span></li>
+                <li class="list-group-item color-teal quicklinks">CREATE NEW CLIENT</li>
+                <li class="list-group-item color-teal quicklinks">CREATE NEW CLIENT</li>
+              </ul> -->
+              <mat-chip-list><mat-chip (click)="addNewLead()" class="bg-pink" style="color:white;">CREATE NEW LEAD</mat-chip></mat-chip-list>
+              <mat-chip-list><mat-chip class="bg-teal color-white" style="color:white;">CREATE NEW CLIENT</mat-chip></mat-chip-list>
+              <mat-chip-list><mat-chip class="bg-pink color-white" style="color:white;">CREAT NEW NOTIFICATION</mat-chip></mat-chip-list>
+              <mat-chip-list><mat-chip class="bg-teal color-white" style="color:white;">MANAGE SETTINGS</mat-chip></mat-chip-list>
+              <!-- <mat-chip-list><mat-chip class="bg-pink">Papadum</mat-chip></mat-chip-list>
+              <mat-chip-list><mat-chip class="bg-pink">Papadum</mat-chip></mat-chip-list> -->
         </div>
     </div>    
     <div class="row" style="padding-top:32px;padding-bottom:15px;">
