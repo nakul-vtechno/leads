@@ -8,9 +8,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {NgxPopperModule} from 'ngx-popper';
 import {MatCardModule} from '@angular/material/card';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import { EditLeadComponent } from './edit-lead/edit-lead.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import {CardModule} from 'primeng/card';
+import {DropdownModule} from 'primeng/dropdown';
+import { SelectDropDownModule } from 'ngx-select-dropdown';
+import { AddLeadComponent } from './add-lead/add-lead.component';
+import {MatChipsModule} from '@angular/material/chips';
+
 
 @NgModule({
-  declarations: [DashboardGridComponent],
+  declarations: [DashboardGridComponent, EditLeadComponent, AddLeadComponent],
   imports: [
     CommonModule,
     MatCheckboxModule,
@@ -19,10 +29,18 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatCardModule,
     FormsModule,
     FontAwesomeModule,
+    MatButtonModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    CardModule,
+    DropdownModule,
+    SelectDropDownModule,
+    MatChipsModule,
     NgxPopperModule.forRoot({placement: 'bottom'})
   ],
   exports: [
     DashboardGridComponent
-  ]
+  ],
+  entryComponents: [EditLeadComponent, AddLeadComponent]
 })
 export class CommonUiModule { }
