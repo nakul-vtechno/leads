@@ -1,26 +1,58 @@
+<app-page-header [title]="'Add User'"></app-page-header>
 <form [formGroup]="userForm">
-    <div class="row" style="padding-top:10px;">
-        <div class="col-6">
-            <div class="row">
-                <div class="col-4 padding-top-col">
-                    Created By
+    <div class="row" style="margin-top:30px;">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-2 padding-top-col">
+                    Full Name
                 </div>
-                <div class="col-8">
-                <input class="input-field form-control" type="text" formControlName="teamMemberId">
+                <div class="col-10">
+                    <input class="input-field form-control" type="text" formControlName="userName">
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-2 padding-top-col">
+                    Email
+                </div>
+                <div class="col-10">
+                <input class="input-field form-control" type="email" formControlName="userMail">
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-2 padding-top-col">
+                    Mobile
+                </div>
+                <div class="col-10">
+                <input class="input-field form-control" type="mobile" formControlName="userMobile">
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-2 padding-top-col">
+                    Role
+                </div>
+                <div class="col-10">
+                    <ngx-select-dropdown style="width:100%" class="input-field" (change)="selectionChanged($event)" formControlName="userRole" [multiple]="false" [config]="{}" [options]="availableRoles"></ngx-select-dropdown>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-2 padding-top-col">
+                    Status
+                </div>
+                <div class="col-10">
+                    <ngx-select-dropdown style="width:100%" class="input-field" (change)="selectionChanged($event)" formControlName="userStauts" [multiple]="false" [config]="{}" [options]="stauses"></ngx-select-dropdown>
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-2 padding-top-col">
+                    
+                </div>
+                <div class="col-10" style="text-align:right;">
+                    <button type="button" class="btn bg-pink color-white">Add</button>
                 </div>
             </div>
         </div>
-        <div class="col-6">
-            <div class="row">
-                <div class="col-4 padding-top-col">
-                    Leader Id
-                </div>
-                <div class="col-8">
-                    <div class="input-group">
-                        <input class="input-field form-control" type="text" formControlName="teamLeaderId">
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div class="col-2"></div>
     </div>
 </form>
+

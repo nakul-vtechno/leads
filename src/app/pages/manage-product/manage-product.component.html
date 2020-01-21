@@ -1,0 +1,69 @@
+<app-page-header [title]="'Manage Products'" [saveButton]="true" (save)="saveClicked()"></app-page-header>
+<!-- <li *ngFor="let product of products">
+    {{product.product_name}} - {{product.product_status}}
+</li> -->
+<div style="margin-top:30px;">
+    <!-- <div class="row" style="margin-bottom: 10px;">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div class="row">
+                <div class="col-9">
+                    <button type="button" (click)="insertBlankProduct()" class="btn bg-teal color-white" style="width:100%;">Add New Product</button>
+                </div>
+                <div class="col-3">
+                    
+                </div> 
+            </div>
+        </div>
+        <div class="col-2"></div>
+    </div> -->
+    <div class="row" style="margin-bottom: 10px;" *ngFor="let product of products; let index = index">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div class="row">
+                <div class="col-8">
+                    <input class="input-field form-control" value="{{product.product_name}}" type="text">
+                </div>
+                <div class="col-3">
+                    <ngx-select-dropdown style="width:100%" class="input-field" (change)="selectionChanged($event)" [multiple]="false" [config]="{}" [(ngModel)]="product.product_status" [options]="stauses"></ngx-select-dropdown>
+                </div>
+                <div class="col-1">
+                    <button type="button" (click)="deleteProduct(index, content)" class="btn bg-pink color-white" style="width:100%;">X</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+    <div class="row" style="margin-bottom: 10px;">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div class="row">
+                <div class="col-12">
+                    <button type="button" (click)="insertBlankProduct()" class="btn bg-teal color-white" style="width:100%;">Add New Product</button>
+                </div>
+                <!-- <div class="col-3">
+                </div> -->
+            </div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+
+<!-- ------------------------------------ -->
+<!--               Dialogs                -->
+<!-- ------------------------------------ -->
+<ng-template #content let-modal>
+    <div class="modal-header bg-danger color-white">
+        <h4 class="modal-title" id="modal-basic-title">Warning</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>This Product will be deleted permanently, are you sure?</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn bg-green color-white" (click)="modal.close('no')">No</button>
+        <button type="button" class="btn bg-green color-white" (click)="modal.close('yes')">Yes</button>
+    </div>
+</ng-template>
