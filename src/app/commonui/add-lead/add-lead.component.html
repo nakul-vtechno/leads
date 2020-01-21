@@ -1,0 +1,348 @@
+<div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add Lead</h4>
+    <button type="button" class="close" aria-label="Close" (click)="close('Cross click')">
+    <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form [formGroup]="leadForm">
+        <div class="row" style="padding-top:10px;">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 padding-top-col">
+                        Created By
+                    </div>
+                    <div class="col-8">
+                    <input class="input-field form-control" type="text" formControlName="teamMemberId">
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 padding-top-col">
+                        Leader Id
+                    </div>
+                    <div class="col-8">
+                        <div class="input-group">
+                            <input class="input-field form-control" type="text" formControlName="teamLeaderId">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="padding-top:10px;">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 padding-top-col">
+                        Customer Name
+                    </div>
+                    <div class="col-8">
+                        <div class="input-group">
+                            <input class="input-field form-control" type="text" formControlName="customerName">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 padding-top-col">
+                        Customer Mobile
+                    </div>
+                    <div class="col-8">
+                        <div class="input-group">
+                            <input class="input-field form-control" type="text" formControlName="customerNumber">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="padding-top:10px;">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 padding-top-col">
+                        Product Wanted
+                    </div>
+                    <div class="col-8">
+                        <!-- <input class="input-field form-control" type="text" formControlName="productWanted"> -->
+                        <ngx-select-dropdown style="width:100%" class="input-field" (change)="selectionChanged($event)" formControlName="productWanted" [multiple]="false" [config]="{}" [options]="availableProducts"></ngx-select-dropdown>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 padding-top-col">
+                        Req Product Value
+                    </div>
+                    <div class="col-8">
+                        <div class="input-group">
+                            <input class="input-field form-control" type="text" formControlName="requiredProductValue">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="padding-top:10px;">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 padding-top-col">
+                        Employment Value
+                    </div>
+                    <div class="col-8">
+                        <div class="input-group">
+                            <input class="input-field form-control" type="text" formControlName="employementType">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 padding-top-col">
+                        Company/Business Name
+                    </div>
+                    <div class="col-8">
+                        <div class="input-group">
+                            <input class="input-field form-control" type="text" formControlName="companyBusinessName">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="padding-top:10px;">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 padding-top-col">
+                        Gross Income (Monthly)
+                    </div>
+                    <div class="col-8">
+                        <div class="input-group">
+                            <input class="input-field form-control" type="text" formControlName="monthlyGrossIncome">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 padding-top-col">
+                        Net Income (Monthly)
+                    </div>
+                    <div class="col-8">
+                        <div class="input-group">
+                            <input class="input-field form-control" type="text" formControlName="monthlyNetIncome">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="padding-top:10px;">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 padding-top-col">
+                        Current Active Loans
+                    </div>
+                    <div class="col-8">
+                        <div class="input-group">
+                            <input class="input-field form-control" type="number" formControlName="numberOfCurrentActiveLoans">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 padding-top-col">
+                        Active Loans Value
+                    </div>
+                    <div class="col-8">
+                        <div class="input-group">
+                            <input class="input-field form-control" type="text" formControlName="totalValueOfCurrentActiveLoans">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="padding-top:10px;">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 padding-top-col">
+                        Active Loans EMI
+                    </div>
+                    <div class="col-8">
+                        <div class="input-group">
+                            <input class="input-field form-control" type="text" formControlName="totalValueOfCurrentMonthlyEmis">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 padding-top-col">
+                        Active Credit Cards
+                    </div>
+                    <div class="col-8">
+                        <div class="input-group">
+                            <input class="input-field form-control" type="number"         formControlName="numberOfCurrentActiveCreditCards">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="padding-top:10px;">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 padding-top-col">
+                        Creation Date
+                    </div>
+                    <div class="col-8">
+                        <div class="input-group">
+                            <input class="input-field form-control" placeholder="yyyy-mm-dd" [(ngModel)]="currentDateModel" name="dp" formControlName="leadCreationDate" ngbDatepicker #d="ngbDatepicker">
+                            <div class="input-field input-group-append" style="padding:6px;">
+                                <fa-icon class="color-teal" (click)="d.toggle()" [icon]="faCalendarDay"></fa-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 padding-top-col">
+                        Status
+                    </div>
+                    <div class="col-8">
+                        <div class="input-group">
+                                <!-- <input class="input-field form-control" type="text" formControlName="currentStatus"> -->
+
+                                <ngx-select-dropdown style="width:100%" class="input-field" (change)="selectionChanged($event)" formControlName="currentStatus" [multiple]="false" [config]="{}" [options]="leadStatusOptions"></ngx-select-dropdown>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="padding-top:10px;">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 padding-top-col">
+                        Last Updated On
+                    </div>
+                    <div class="col-8">
+                        <div class="input-group">
+                            <input class="input-field form-control" placeholder="yyyy-mm-dd" [(ngModel)]="lastStatusChangeDateModel" name="lud" formControlName="lastStatusChangeDate" ngbDatepicker #lud="ngbDatepicker">
+                            <div class="input-field input-group-append" style="padding:6px;">
+                                <fa-icon class="color-teal" (click)="lud.toggle()" [icon]="faCalendarDay"></fa-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 padding-top-col">
+                        Applied Card Name
+                    </div>
+                    <div class="col-8">
+                        <div class="input-group">
+                            <input class="input-field form-control" type="text" formControlName="appliedCardName">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="padding-top:10px;">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 padding-top-col">
+                        Login Amount
+                    </div>
+                    <div class="col-8">
+                        <div class="input-group">
+                            <input class="input-field form-control" type="text" formControlName="loginAmount">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 padding-top-col">
+                        Sanctioned Amount
+                    </div>
+                    <div class="col-8">
+                        <div class="input-group">
+                            <input class="input-field form-control" type="text" formControlName="sanctionAmount">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="padding-top:10px;">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 padding-top-col">
+                        Disbursed Amount
+                    </div>
+                    <div class="col-8">
+                        <div class="input-group">
+                            <input class="input-field form-control" type="text" formControlName="disbursedAmount">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 padding-top-col">
+                        Login Date
+                    </div>
+                    <div class="col-8">
+                        <div class="input-group">
+                            <input class="input-field form-control" placeholder="yyyy-mm-dd" [(ngModel)]="loginDateModel" name="ld" formControlName="loginDate" ngbDatepicker #ld="ngbDatepicker">
+                            <div class="input-field input-group-append" style="padding:6px;">
+                                <fa-icon class="color-teal" (click)="ld.toggle()" [icon]="faCalendarDay"></fa-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="padding-top:10px;">
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 padding-top-col">
+                        Sanction Date
+                    </div>
+                    <div class="col-8">
+                        <div class="input-group">
+                            <input class="input-field form-control" placeholder="yyyy-mm-dd" [(ngModel)]="sanctionDateModel" name="sd" formControlName="sanctionDate" ngbDatepicker #sd="ngbDatepicker">
+                            <div class="input-field input-group-append" style="padding:6px;">
+                                <fa-icon class="color-teal" (click)="sd.toggle()" [icon]="faCalendarDay"></fa-icon>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4 padding-top-col">
+                        Disbursed Date
+                    </div>
+                    <div class="col-8">
+                        <div class="input-group">
+                            <input class="input-field form-control" type="text" formControlName="disbursedDate">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn bg-pink color-white" (click)="close('Save click')">Save</button>
+</div>

@@ -1,0 +1,18 @@
+.input-field{
+    background: #E0F2F1 !important;
+    /* width: 100%;
+    border: none;
+    padding: 0px 5px 0px 8px; */
+}
+
+.row-border-bottom{
+    border-bottom: 1px solid blue;
+}
+
+.padding-top-col {
+    padding-top: 8px;
+}
+
+.ngx-dropdown-button{
+    background: #E0F2F1 !important;
+}
