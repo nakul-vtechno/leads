@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,8 +23,9 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
 
-import { MatNativeDateModule, MatListModule } from '@angular/material';
+import { MatNativeDateModule, MatListModule, MatChipsModule } from '@angular/material';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -34,6 +35,9 @@ import { CommonUiModule } from './commonui/commonui.module';
 
 import {TooltipModule} from 'primeng/tooltip';
 import { NgxPopperModule } from 'ngx-popper';
+import { EditLeadComponent } from './commonui/edit-lead/edit-lead.component';
+import {CardModule} from 'primeng/card';
+import { AddLeadComponent } from './commonui/add-lead/add-lead.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +50,7 @@ import { NgxPopperModule } from 'ngx-popper';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     NgbModule,
     FormsModule,
     MatAutocompleteModule,
@@ -68,9 +73,12 @@ import { NgxPopperModule } from 'ngx-popper';
     CommonModule,
     CommonUiModule,
     TooltipModule,
+    MatButtonModule,
+    CardModule,
+    MatChipsModule,
     NgxPopperModule.forRoot({placement: 'bottom'})
   ],
-  providers: [],
+  providers: [EditLeadComponent, AddLeadComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
