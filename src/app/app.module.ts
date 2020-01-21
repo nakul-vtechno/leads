@@ -38,6 +38,8 @@ import { NgxPopperModule } from 'ngx-popper';
 import { EditLeadComponent } from './commonui/edit-lead/edit-lead.component';
 import {CardModule} from 'primeng/card';
 import { AddLeadComponent } from './commonui/add-lead/add-lead.component';
+import { ProductCountTableComponent } from './commonui/product-count-table/product-count-table.component';
+import { PagesModule } from './pages/pages.module';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,7 @@ import { AddLeadComponent } from './commonui/add-lead/add-lead.component';
     HeaderComponent,
     DashboardComponent,
     LoginComponent,
+    ProductCountTableComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,9 +79,10 @@ import { AddLeadComponent } from './commonui/add-lead/add-lead.component';
     MatButtonModule,
     CardModule,
     MatChipsModule,
+    PagesModule,
     NgxPopperModule.forRoot({placement: 'bottom'})
   ],
-  providers: [EditLeadComponent, AddLeadComponent],
+  providers: [EditLeadComponent, AddLeadComponent, ProductCountTableComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

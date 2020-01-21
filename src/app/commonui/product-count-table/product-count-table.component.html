@@ -1,0 +1,55 @@
+<ul class="list-group" style="font-weight: 500;">
+    <li class="list-group-item d-flex justify-content-between align-items-center bg-teal ">
+        <span class="ss" style="color:white;width: 50%;">{{title}}
+        </span>
+        <span class="badge bg-transparent badge-pill" style="color: rgb(255, 255, 255);
+        font-weight: 400;">Today</span>
+        <span class="badge bg-transparent badge-pill" style="color: rgb(255, 255, 255);;
+        font-weight: 400;">This<br />Month</span>
+        <span class="badge bg-transparent badge-pill" style="color: rgb(255, 255, 255);;
+        font-weight: 400;">Till<br />Date</span>
+      </li>
+      <li *ngFor="let item of tableData" class="list-group-item d-flex justify-content-between align-items-center color-gray">
+        <span class="ss color-teal">{{item.itemName}}</span>
+        <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">{{item.countToday}}</span>
+        <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">{{item.countMonth}}</span>
+        <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">{{item.countYtd}}</span>
+      </li>
+
+    <!-- <li class="list-group-item d-flex justify-content-between align-items-center color-gray">
+    <span class="ss color-teal">Personal Loan</span>
+    <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">12</span>
+    <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">34</span>
+    <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">45</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center color-gray">
+    <span class="ss color-teal">Credit Card</span>
+    <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">05</span>
+    <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">47</span>
+    <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">32</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center color-gray">
+    <span class="ss color-teal">Auto Loan</span>
+    <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">90</span>
+    <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">03</span>
+    <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">48</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center color-gray">
+    <span class="ss color-teal">Bussiness Loan</span>
+    <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">15</span>
+    <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">67</span>
+    <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">90</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center color-gray">
+        <span class="ss color-teal">Home Loan</span>
+        <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">89</span>
+        <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">34</span>
+        <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">12</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center color-gray">
+      <span class="ss color-teal">Loan Against Property</span>
+      <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">45</span>
+      <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">77</span>
+      <span class="badge badge-pill color-teal" style="font-weight:600;background-color: transparent;border: 1px solid #009688;">38</span>
+    </li> -->
+  </ul>

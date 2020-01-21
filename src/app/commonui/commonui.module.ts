@@ -16,8 +16,7 @@ import {CardModule} from 'primeng/card';
 import {DropdownModule} from 'primeng/dropdown';
 import { SelectDropDownModule } from 'ngx-select-dropdown';
 import { AddLeadComponent } from './add-lead/add-lead.component';
-import {MatChipsModule} from '@angular/material/chips';
-
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
   declarations: [DashboardGridComponent, EditLeadComponent, AddLeadComponent],
