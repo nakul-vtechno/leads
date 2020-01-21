@@ -2,11 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { LeadsService } from 'src/app/services/leads/leads.service';
-import {Observable} from 'rxjs';
 import { faArrowCircleUp, faHistory, faEdit, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 import {debounceTime, distinctUntilChanged, map} from 'rxjs/operators';
 import { uniq } from 'lodash';
+import { EditLeadComponent } from '../../edit-lead/edit-lead.component';
 
 @Component({
   selector: 'app-dashboard-grid',
@@ -16,6 +16,7 @@ import { uniq } from 'lodash';
 export class DashboardGridComponent implements OnInit {
 
   leads;
+  allLeads;
   closeResult: string;
   tooltipClientInfo: string;
   popperShowClientDetails: object;
@@ -28,19 +29,26 @@ export class DashboardGridComponent implements OnInit {
   public faEdit = faEdit;
   public faInfoCircle = faInfoCircle;
 
-  public filterProduct: string;
-  public filterCustomerName: string;
-  public filterCustomerMobile: string;
-  public filterCustomerDate: string;
-  public filterStatus: string;
-  public currentFilter: string = '';
+  public filters = {
+    filterProduct: '',
+    filterCustomerName: '',
+    filterCustomerMobile: '',
+    filterCustomerDate: '',
+    filterStatus: '',
+  };
 
-  constructor(private modalService: NgbModal, private leadsService: LeadsService) { }
+  public currentFilter = '';
+
+  constructor(private modalService: NgbModal,
+              private leadsService: LeadsService,
+              private editLead: EditLeadComponent) { }
 
   ngOnInit() {
-    this.leads = this.leadsService.getLeads().data;
+    this.allLeads = this.leadsService.getLeads();
+    this.collectionSize = this.allLeads.data.length;
+    // this.leads = JSON.stringify(JSON.parse(this.allLeads));
+    this.leads = this.allLeads.data.slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
     console.log('9Jan => ', this.leads);
-    this.collectionSize = this.leads.length;
   }
 
   onSort(event) {
@@ -56,20 +64,24 @@ export class DashboardGridComponent implements OnInit {
     this.popperShowClientDetails = lead;
   }
 
-  open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title', size: 'xl'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
+  openLead(lead) {
+    this.leadsService.setCurrentLead(lead);
+    this.editLead.open(lead);
+    // this.modalService.open(EditLeadComponent, {ariaLabelledBy: 'modal-basic-title', size: 'xl'}).result.then((result) => {
+    //   console.log('13jan result', result)
+    //   this.closeResult = `Closed with: ${result}`;
+    // }, (reason) => {
+    //   console.log('13jan reason', reason)
+    //   this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    // });
   }
 
-  get allLeads() {
-    // return this.leads
-    return this.leadsService.getLeads().data
-      // .map((lead, i) => ({id: i + 1, ...lead}))
-      .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
-  }
+  // get allLeads() {
+  //   // return this.leads
+  //   return this.leadsService.getLeads().data
+  //     // .map((lead, i) => ({id: i + 1, ...lead}))
+  //     .slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
+  // }
 
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
@@ -108,10 +120,24 @@ export class DashboardGridComponent implements OnInit {
     }
 
     onSelect(event, filter) {
-      
       this.leads = this.leadsService.getLeadsByParam(filter, event.item).data;
       this.collectionSize = this.leads.length;
-      // this.leads = this.leads.filter(item => item['productWanted'].toLowerCase() == event.item.toLowerCase())
+    }
+
+    clearFilter(filter) {
+      this.filters[filter] = '';
+      this.collectionSize = this.allLeads.length;
+      this.allLeads = this.leadsService.getFilteredLeads(this.filters).data;
+      this.leads = this.allLeads.slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
+      // this.filters[filter] = '';
+      // this.leads = this.leadsService.getLeadsByAllParams(this.filters).data;
+      // this.collectionSize = this.leads.length;
+    }
+
+    onFilterChange() {
+      this.allLeads = this.leadsService.getFilteredLeads(this.filters).data;
+      this.collectionSize = this.allLeads.length;
+      this.leads = this.allLeads.slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
     }
 
 }
