@@ -45,6 +45,10 @@
       }
     ],
     "no-consecutive-blank-lines": false,
+    "no-string-literal": false,
+    "radix": false,
+    "typedef-whitespace": false,
+    "quotemark": false,
     "no-console": [
       true,
       "debug",
