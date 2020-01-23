@@ -17,6 +17,7 @@ export class ManageProductComponent implements OnInit {
     'On hold'
   ];
   public expression = false;
+  public date = new Date();
 
   constructor(private productsService: ProductsService, private modalService: NgbModal) { }
 
@@ -25,10 +26,6 @@ export class ManageProductComponent implements OnInit {
     if (products.data.length) {
       this.products = products.data;
     }
-  }
-
-  selectionChanged(event) {
-
   }
 
   insertBlankProduct(){
@@ -50,5 +47,9 @@ export class ManageProductComponent implements OnInit {
 
   saveClicked() {
     alert('saved');
+  }
+
+  selectionChanged(event) {
+
   }
 }

@@ -1,0 +1,74 @@
+<app-page-header [title]="'Manage Products'" [saveButton]="false" (save)="null"></app-page-header>
+<div class="row" style="padding-bottom:30px;">
+    <div class="col-2" style="display:flex;">
+        <span>
+            <!-- <input type="text" class="form-control" [(ngModel)]="filters.filterProduct" placeholder="Product" (click)="onFilterClick('productWanted')" (selectItem)="onSelect($event, 'productWanted')" [ngbTypeahead]="search"/> -->
+            <input type="text" class="form-control" [(ngModel)]="filters.filterProduct" placeholder="Product" (ngModelChange)="onFilterChange($event, 'productWanted')" />
+        </span>
+        <span>
+            <button *ngIf="filters.filterProduct.length" mat-icon-button aria-label="Example icon-button with a heart icon">
+                <mat-icon *ngIf="filters.filterProduct.length" (click)="clearFilter('filterProduct')" class="color-pink">clear</mat-icon>
+            </button> 
+        </span>
+    </div>
+    <div class="col-2" style="display:flex;">
+        <span>
+            <!-- <input type="text" class="form-control" placeholder="Customer Name" [ngbTypeahead]="search" (click)="onFilterClick('customerName')" (selectItem)="onSelect($event, 'customerName')" [(ngModel)]="filters.filterCustomerName" /> -->
+            <input type="text" class="form-control" [(ngModel)]="filters.filterCustomerName" placeholder="Customer Name" (ngModelChange)="onFilterChange()" />
+        </span>
+        <span>
+            <button *ngIf="filters.filterCustomerName.length" mat-icon-button aria-label="Example icon-button with a heart icon">
+                <mat-icon *ngIf="filters.filterCustomerName.length" (click)="clearFilter('filterCustomerName')" class="color-pink">clear</mat-icon>
+            </button> 
+        </span>
+    </div>
+    <div class="col-2" style="display:flex;">
+        <span>
+            <!-- <input type="text" class="form-control" placeholder="Customer Mobile Number" [ngbTypeahead]="search" (click)="onFilterClick('customerNumber')" (selectItem)="onSelect($event, 'customerNumber')" [(ngModel)]="filters.filterCustomerMobile" /> -->
+            <input type="text" class="form-control" [(ngModel)]="filters.filterCustomerMobile" placeholder="Customer Mobile Number" (ngModelChange)="onFilterChange()" />
+        </span>
+        <span>
+            <button *ngIf="filters.filterCustomerMobile.length" mat-icon-button aria-label="Example icon-button with a heart icon">
+                <mat-icon *ngIf="filters.filterCustomerMobile.length" (click)="clearFilter('filterCustomerMobile')" class="color-pink">clear</mat-icon>
+            </button> 
+        </span>
+        
+    </div>
+    <div class="col-2" style="display:flex;">
+        <span>
+            <!-- <input type="text" class="form-control" placeholder="Creation Date" [ngbTypeahead]="search" (click)="onFilterClick('leadCreationDate')" (selectItem)="onSelect($event, 'leadCreationDate')" [(ngModel)]="filters.filterCustomerDate" /> -->
+            <input type="text" class="form-control" [(ngModel)]="filters.filterCustomerDate" placeholder="Creation Date" (ngModelChange)="onFilterChange()" />
+        </span>
+        <span>
+            <button *ngIf="filters.filterCustomerDate.length" mat-icon-button aria-label="Example icon-button with a heart icon">
+                <mat-icon *ngIf="filters.filterCustomerDate.length" (click)="clearFilter('filterCustomerDate')" class="color-pink">clear</mat-icon>
+            </button> 
+        </span>
+        
+    </div>
+    <div class="col-2" style="display:flex;">
+        <span>
+            <!-- <input type="text" class="form-control" placeholder="Status" [ngbTypeahead]="search" (click)="onFilterClick('currentStatus')" (selectItem)="onSelect($event, 'currentStatus')" [(ngModel)]="filters.filterStatus" /> -->
+            <input type="text" class="form-control" [(ngModel)]="filters.filterStatus" placeholder="Status" (ngModelChange)="onFilterChange()" />
+        </span>
+        <span>
+            <button *ngIf="filters.filterStatus.length" mat-icon-button aria-label="Example icon-button with a heart icon">
+                <mat-icon *ngIf="filters.filterStatus.length" (click)="clearFilter('filterStatus')" class="color-pink">clear</mat-icon>
+            </button> 
+        </span>
+    </div>
+    <div class="col-2" style="text-align: right;">
+        <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Bulk Action</button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                <button ngbDropdownItem>Delete</button>
+                <button ngbDropdownItem>Download</button>
+                <button ngbDropdownItem>Freeze</button>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="col-1" style="text-align: right;">
+        <fa-icon class="color-teal" [icon]="faArrowCircleUp" (click)="isCollapsed = !isCollapsed"
+        [attr.aria-expanded]="!isCollapsed" aria-controls="chartPanel" size="2x"></fa-icon>
+    </div> -->
+</div>

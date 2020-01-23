@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
 import { AddUserComponent } from './pages/add-user/add-user.component';
 import { ManageProductComponent } from './pages/manage-product/manage-product.component';
+import { ManageUsersComponent } from './pages/manage-users/manage-users.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'add-user', component: AddUserComponent },
   { path: 'manage-products', component: ManageProductComponent },
+  { path: 'manage-users', component: ManageUsersComponent },
   { path: '',
     redirectTo: '/login',
     pathMatch: 'full'

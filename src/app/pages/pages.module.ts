@@ -6,16 +6,20 @@ import { AddUserComponent } from './add-user/add-user.component';
 import { SelectDropDownModule } from 'ngx-select-dropdown';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { ManageProductComponent } from './manage-product/manage-product.component';
+import { ManageUsersComponent } from './manage-users/manage-users.component';
+import {MatIconModule} from '@angular/material/icon';
+
 
 
 
 @NgModule({
-  declarations: [AddUserComponent, PageHeaderComponent, ManageProductComponent],
+  declarations: [AddUserComponent, PageHeaderComponent, ManageProductComponent, ManageUsersComponent],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    SelectDropDownModule
+    SelectDropDownModule,
+    MatIconModule
   ],
   entryComponents: [AddUserComponent]
 })
