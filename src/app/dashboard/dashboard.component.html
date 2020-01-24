@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<!-- <div class="container-fluid"> -->
     <div class="row chart-area" id="chartPanel" [ngbCollapse]="isCollapsed">
         <div class="col-4">
             <h6 class="top-labels" >Products</h6>
@@ -21,11 +21,13 @@
               </ul> -->
 
               
-
-              <mat-chip-list><mat-chip (click)="addNewLead()" class="bg-pink" style="color:white;">CREATE NEW LEAD</mat-chip></mat-chip-list>
-              <mat-chip-list><mat-chip class="bg-teal color-white" style="color:white;">CREATE NEW CLIENT</mat-chip></mat-chip-list>
-              <mat-chip-list><mat-chip class="bg-pink color-white" style="color:white;">CREAT NEW NOTIFICATION</mat-chip></mat-chip-list>
+              <div>
+                <mat-chip-list><mat-chip (click)="addNewLead()" class="bg-pink" style="color:white;">CREATE NEW LEAD</mat-chip></mat-chip-list>
+              <mat-chip-list><mat-chip class="bg-teal color-white" [routerLink]="['/manage-users']" style="color:white;">MANAGE USERS</mat-chip></mat-chip-list>
+              <mat-chip-list><mat-chip class="bg-pink color-white" [routerLink]="['/manage-products']" style="color:white;">MANAGE PRODUCTS</mat-chip></mat-chip-list>
               <mat-chip-list><mat-chip class="bg-teal color-white" style="color:white;">MANAGE SETTINGS</mat-chip></mat-chip-list>
+              </div>
+              
 
 
 
@@ -66,9 +68,4 @@
         </div> -->
     </div>
 
-    <div class="row">
-        <div class="col-12">
-            <app-dashboard-grid></app-dashboard-grid>
-        </div>
-    </div>
-</div>
+    <app-dashboard-grid></app-dashboard-grid>
