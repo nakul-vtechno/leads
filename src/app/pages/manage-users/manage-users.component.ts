@@ -34,19 +34,16 @@ export class ManageUsersComponent implements OnInit {
   }
 
   clearFilter(filter) {
-    this.filters[filter] = '';
-    this.collectionSize = this.allLeads.length;
-    this.allLeads = this.leadsService.getFilteredLeads(this.filters).data;
-    this.leads = this.allLeads.slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
     // this.filters[filter] = '';
-    // this.leads = this.leadsService.getLeadsByAllParams(this.filters).data;
-    // this.collectionSize = this.leads.length;
+    // this.collectionSize = this.allLeads.length;
+    // this.allLeads = this.leadsService.getFilteredLeads(this.filters).data;
+    // this.leads = this.allLeads.slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
   }
 
   onFilterChange() {
-    this.allLeads = this.leadsService.getFilteredLeads(this.filters).data;
-    this.collectionSize = this.allLeads.length;
-    this.leads = this.allLeads.slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
+    // this.allLeads = this.leadsService.getFilteredLeads(this.filters).data;
+    // this.collectionSize = this.allLeads.length;
+    // this.leads = this.allLeads.slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
   }
 
 }

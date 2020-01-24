@@ -7,7 +7,9 @@ import { SelectDropDownModule } from 'ngx-select-dropdown';
 import { PageHeaderComponent } from './page-header/page-header.component';
 import { ManageProductComponent } from './manage-product/manage-product.component';
 import { ManageUsersComponent } from './manage-users/manage-users.component';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule} from '@angular/material/icon';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatCheckboxModule} from '@angular/material/checkbox';
 
 
 
@@ -19,7 +21,9 @@ import {MatIconModule} from '@angular/material/icon';
     FormsModule,
     ReactiveFormsModule,
     SelectDropDownModule,
-    MatIconModule
+    MatIconModule,
+    FontAwesomeModule,
+    MatCheckboxModule
   ],
   entryComponents: [AddUserComponent]
 })

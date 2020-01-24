@@ -1,5 +1,5 @@
-<app-page-header [title]="'Manage Products'" [saveButton]="false" (save)="null"></app-page-header>
-<div class="row" style="padding-bottom:30px;">
+<app-page-header [title]="'Manage Users'" [saveButton]="false" (save)="null"></app-page-header>
+<div class="row" style="margin-top:30px;">
     <div class="col-2" style="display:flex;">
         <span>
             <!-- <input type="text" class="form-control" [(ngModel)]="filters.filterProduct" placeholder="Product" (click)="onFilterClick('productWanted')" (selectItem)="onSelect($event, 'productWanted')" [ngbTypeahead]="search"/> -->
@@ -72,3 +72,74 @@
         [attr.aria-expanded]="!isCollapsed" aria-controls="chartPanel" size="2x"></fa-icon>
     </div> -->
 </div>
+<div class="row" style="padding-top:14px;font-size: 14px;">
+    <div class="col-12" style="text-align: left;">
+        <table class="table table-striped">
+            <thead>
+            <tr class="bg-teal color-white">
+                <th scope="col" style="text-align: center;font-weight: 400;">#</th>
+                <th scope="col" style="font-weight: 400;" sortable="name" >Product</th>
+                <th scope="col" style="font-weight: 400;" sortable="area" >Customer Name</th>
+                <th scope="col" style="font-weight: 400;" sortable="population" >Customer number</th>
+                <th scope="col" style="font-weight: 400;" sortable="name" >Product Value</th>
+                <th scope="col" style="font-weight: 400;" sortable="name" >Ceation Date</th>
+                <th scope="col" style="font-weight: 400;" sortable="name" >Last Updated On</th>
+                <th scope="col" style="font-weight: 400;" sortable="name" >Status</th>
+                <th scope="col" style="font-weight: 400;" sortable="name" >Actions</th>
+                <th scope="col" sortable="name"  style="text-align: center;font-weight: 400;">Select All</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let lead of users, let i=index" >
+                    <td style="text-align: center;width:2%;">
+                        {{lead.userTeamLead}}
+                    </td>
+                    <td>
+                        <span>{{lead.userName}} </span>
+                    </td>
+                    <td>
+                        <span></span>
+                        
+                    </td>
+                    <td>
+                        {{lead.userMail}}
+                    </td>
+                    <td>
+                        ₹{{lead.userMobile}}
+                    </td>
+                    <td>
+                        {{lead.userRole}}
+                    </td>
+                    <td>
+                        {{lead.userStauts}}
+                            
+                    </td>
+                    <td>
+                        {{lead.userRoleId}}
+                    </td>
+                    <td>
+                        <fa-icon class="color-teal" placement="top" ngbTooltip="View History" [icon]="faHistory"></fa-icon>&nbsp;
+                        <fa-icon  class="color-teal" placement="top" ngbTooltip="Edit Lead" [icon]="faEdit"></fa-icon>&nbsp;
+                        <fa-icon class="color-teal" [icon]="faArrowCircleUp"></fa-icon>
+                    </td>
+                    <td style="text-align: center;">
+                        <mat-checkbox></mat-checkbox>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+       
+    </div>
+</div>
+<!-- <div class="d-flex justify-content-between p-2">
+    <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">
+    </ngb-pagination>
+
+    <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
+        <option [ngValue]="2">2 items</option>
+        <option [ngValue]="5">5 items</option>
+        <option [ngValue]="10">10 items</option>
+        <option [ngValue]="50">50 items</option>
+        <option [ngValue]="100">100 items</option>
+    </select>
+</div> -->
