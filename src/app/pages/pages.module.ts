@@ -10,12 +10,13 @@ import { ManageUsersComponent } from './manage-users/manage-users.component';
 import { MatIconModule} from '@angular/material/icon';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatCheckboxModule} from '@angular/material/checkbox';
+import { ManageSettingsComponent } from './manage-settings/manage-settings.component';
 
 
 
 
 @NgModule({
-  declarations: [AddUserComponent, PageHeaderComponent, ManageProductComponent, ManageUsersComponent],
+  declarations: [AddUserComponent, PageHeaderComponent, ManageProductComponent, ManageUsersComponent, ManageSettingsComponent],
   imports: [
     CommonModule,
     FormsModule,

@@ -1,0 +1,14 @@
+<app-page-header [title]="'Manage Settings'" [saveButton]="true" (save)="saveClicked()"></app-page-header>
+
+<form [formGroup]="settingsForm">
+    <div class="row pt-3 ml-5 mr-5">
+        <div class="col-4 pt-2">
+            Site Name
+        </div>
+        <div class="col-8">
+            <input class="input-field form-control" type="text" formControlName="siteName">
+        </div>
+    </div>
+</form>
+
+

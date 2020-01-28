@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
       userEmail: new FormControl(''),
       userPassword: new FormControl(''),
     });
+    this.loginForm.get('userEmail').patchValue('lead@lead.com');
   }
 
   login() {

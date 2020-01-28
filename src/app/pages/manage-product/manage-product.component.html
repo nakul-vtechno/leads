@@ -1,22 +1,22 @@
 <app-page-header [title]="'Manage Products'" [saveButton]="true" (save)="saveClicked()"></app-page-header>
-<!-- <li *ngFor="let product of products">
-    {{product.product_name}} - {{product.product_status}}
-</li> -->
 <div style="margin-top:30px;">
-    <!-- <div class="row" style="margin-bottom: 10px;">
+    <div class="row">
         <div class="col-2"></div>
         <div class="col-8">
             <div class="row">
-                <div class="col-9">
-                    <button type="button" (click)="insertBlankProduct()" class="btn bg-teal color-white" style="width:100%;">Add New Product</button>
+                <div class="col-8">
+                    <p class="font-weight-bold">Name</p>
                 </div>
                 <div class="col-3">
-                    
-                </div> 
+                    <p class="font-weight-bold">Status</p>
+                </div>
+                <div class="col-1">
+                </div>
             </div>
         </div>
         <div class="col-2"></div>
-    </div> -->
+    </div>
+
     <div class="row" style="margin-bottom: 10px;" *ngFor="let product of products; let index = index">
         <div class="col-2"></div>
         <div class="col-8">

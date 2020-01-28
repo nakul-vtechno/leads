@@ -17,9 +17,10 @@ import { DropdownModule} from 'primeng/dropdown';
 import { SelectDropDownModule } from 'ngx-select-dropdown';
 import { AddLeadComponent } from './add-lead/add-lead.component';
 import { MatChipsModule } from '@angular/material/chips';
+import { AssignLeadComponent } from './assign-lead/assign-lead.component';
 
 @NgModule({
-  declarations: [DashboardGridComponent, EditLeadComponent, AddLeadComponent],
+  declarations: [DashboardGridComponent, EditLeadComponent, AddLeadComponent, AssignLeadComponent],
   imports: [
     CommonModule,
     MatCheckboxModule,

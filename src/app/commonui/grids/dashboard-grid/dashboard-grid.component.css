@@ -38,3 +38,10 @@
   .checkbox label input[type="checkbox"]:disabled+.cr {
     opacity: .5;
   }
+
+  .border-bottom-popup{
+    border-bottom: 1px solid rgba(0,0,0,.14);
+  }
+  .border-no-bottom-popup{
+    border-bottom: 0px solid rgba(0,0,0,.14);
+  }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { NgbModal, ModalDismissReasons, NgbActiveModal, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { LeadsService } from 'src/app/services/leads/leads.service';
-import { faArrowCircleUp, faCalendarDay} from '@fortawesome/free-solid-svg-icons';
+import { faArrowCircleUp, faCalendarDay, faPen} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-edit-lead',
@@ -13,6 +13,7 @@ export class EditLeadComponent implements OnInit {
 
   public faArrowCircleUp = faArrowCircleUp;
   public faCalendarDay = faCalendarDay;
+  public faPen = faPen;
   closeResult: string;
   leadForm: FormGroup;
   currentLead = {};
@@ -73,6 +74,7 @@ export class EditLeadComponent implements OnInit {
       loginDate: new FormControl(''),
       sanctionDate: new FormControl(''),
       disbursedDate: new FormControl(''),
+      assignedToName: new FormControl(''),
     });
   }
 
@@ -150,7 +152,7 @@ export class EditLeadComponent implements OnInit {
   }
 
   private formatDate(date) {
-    if(date === null) {
+    if (date === null) {
       return null;
     }
     return {

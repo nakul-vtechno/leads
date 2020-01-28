@@ -25,7 +25,7 @@ export class LeadsService {
         totalValueOfCurrentMonthlyEmis : 35000,
         numberOfCurrentActiveCreditCards : 0,
         leadCreationDate : '2020-01-12',
-        currentStatus : 'Verification Done',
+        currentStatus : 'Case Disbursed',
         lastStatusChangeDate : '7-1-2020',
         appliedCardName : null,
         loginAmount : 200000,
@@ -33,7 +33,11 @@ export class LeadsService {
         disbursedAmount : 0,
         loginDate : '6-1-2020',
         sanctionDate : null,
-        disbursedDate : null
+        disbursedDate : null,
+        assignedTo: '2',
+        assignedToName: 'Priyanka Sharma',
+        leadHistory: null,
+        leadRemarks: null
       },
       {
         leadId : '2',
@@ -60,7 +64,11 @@ export class LeadsService {
         disbursedAmount : 0,
         loginDate : '5-1-2020',
         sanctionDate : null,
-        disbursedDate : null
+        disbursedDate : null,
+        assignedTo: '2',
+        assignedToName: 'Priyanka Sharma',
+        leadHistory: '6-1-2020:Document Pending|8-1-2020:Case Logged in|10-1-2020:Verification Pending|12-1-2020:Verification Done|14-1-2020:Verification Pending|17-1-2020:Case Approved|20-1-2020:Case Disbursed',
+        leadRemarks: '6-1-2020:Customer is busy|8-1-2020:Customer will provide the documents|10-1-2020:Customer not reachable|12-1-2020:provided documents provided documents provided documents provided documents provided documents provided documents|14-1-2020:callback requested by customer|6-1-2020:Customer is busy|8-1-2020:Customer will provide the documents|10-1-2020:Customer not reachable|12-1-2020:provided documents provided documents provided documents provided documents provided documents provided documents|14-1-2020:callback requested by customer'
       },
       {
         leadId : '3',
@@ -87,7 +95,11 @@ export class LeadsService {
         disbursedAmount : 0,
         loginDate : '4-1-2020',
         sanctionDate : null,
-        disbursedDate : null
+        disbursedDate : null,
+        assignedTo: '2',
+        assignedToName: 'Priyanka Sharma',
+        leadHistory: '6-1-2020:Document Pending|8-1-2020:Case Logged in|10-1-2020:Verification Pending|12-1-2020:Verification Done|14-1-2020:Verification Pending|17-1-2020:Case Approved|20-1-2020:Case Disbursed',
+        leadRemarks: '6-1-2020:Customer is busy|8-1-2020:Customer will provide the documents|10-1-2020:Customer not reachable|12-1-2020:provided documents|14-1-2020:callback requested by customer'
       },
       {
         leadId : '4',
@@ -114,7 +126,11 @@ export class LeadsService {
         disbursedAmount : 0,
         loginDate : '6-1-2020',
         sanctionDate : null,
-        disbursedDate : null
+        disbursedDate : null,
+        assignedTo: '2',
+        assignedToName: 'Priyanka Sharma',
+        leadHistory: '6-1-2020:Document Pending|8-1-2020:Case Logged in|10-1-2020:Verification Pending|12-1-2020:Verification Done|14-1-2020:Verification Pending|17-1-2020:Case Approved|20-1-2020:Case Disbursed',
+        leadRemarks: '6-1-2020:Customer is busy|8-1-2020:Customer will provide the documents|10-1-2020:Customer not reachable|12-1-2020:provided documents|14-1-2020:callback requested by customer'
       },
       {
         leadId : '5',
@@ -141,7 +157,11 @@ export class LeadsService {
         disbursedAmount : 0,
         loginDate : '6-1-2020',
         sanctionDate : null,
-        disbursedDate : null
+        disbursedDate : null,
+        assignedTo: '2',
+        assignedToName: 'Priyanka Sharma',
+        leadHistory: '6-1-2020:Document Pending|8-1-2020:Case Logged in|10-1-2020:Verification Pending|12-1-2020:Verification Done|14-1-2020:Verification Pending|17-1-2020:Case Approved|20-1-2020:Case Disbursed',
+        leadRemarks: '6-1-2020:Customer is busy|8-1-2020:Customer will provide the documents|10-1-2020:Customer not reachable|12-1-2020:provided documents|14-1-2020:callback requested by customer'
       },
       {
         leadId : '6',
@@ -168,7 +188,11 @@ export class LeadsService {
         disbursedAmount : 0,
         loginDate : '6-1-2020',
         sanctionDate : null,
-        disbursedDate : null
+        disbursedDate : null,
+        assignedTo: '2',
+        assignedToName: 'Priyanka Sharma',
+        leadHistory: '6-1-2020:Document Pending|8-1-2020:Case Logged in|10-1-2020:Verification Pending|12-1-2020:Verification Done|14-1-2020:Verification Pending|17-1-2020:Case Approved|20-1-2020:Case Disbursed',
+        leadRemarks: '6-1-2020:Customer is busy|8-1-2020:Customer will provide the documents|10-1-2020:Customer not reachable|12-1-2020:provided documents|14-1-2020:callback requested by customer'
       },
       {
         leadId : '7',
@@ -195,7 +219,11 @@ export class LeadsService {
         disbursedAmount : 0,
         loginDate : '6-1-2020',
         sanctionDate : null,
-        disbursedDate : null
+        disbursedDate : null,
+        assignedTo: '2',
+        assignedToName: 'Priyanka Sharma',
+        leadHistory: '6-1-2020:Document Pending|8-1-2020:Case Logged in|10-1-2020:Verification Pending|12-1-2020:Verification Done|14-1-2020:Verification Pending|17-1-2020:Case Approved|20-1-2020:Case Disbursed',
+        leadRemarks: '6-1-2020:Customer is busy|8-1-2020:Customer will provide the documents|10-1-2020:Customer not reachable|12-1-2020:provided documents|14-1-2020:callback requested by customer'
       },
       {
         leadId : '8',
@@ -222,7 +250,11 @@ export class LeadsService {
         disbursedAmount : 0,
         loginDate : '6-1-2020',
         sanctionDate : null,
-        disbursedDate : null
+        disbursedDate : null,
+        assignedTo: '2',
+        assignedToName: 'Priyanka Sharma',
+        leadHistory: '6-1-2020:Document Pending|8-1-2020:Case Logged in|10-1-2020:Verification Pending|12-1-2020:Verification Done|14-1-2020:Verification Pending|17-1-2020:Case Approved|20-1-2020:Case Disbursed',
+        leadRemarks: '6-1-2020:Customer is busy|8-1-2020:Customer will provide the documents|10-1-2020:Customer not reachable|12-1-2020:provided documents|14-1-2020:callback requested by customer'
       },
       {
         leadId : '9',
@@ -249,7 +281,11 @@ export class LeadsService {
         disbursedAmount : 0,
         loginDate : '6-1-2020',
         sanctionDate : null,
-        disbursedDate : null
+        disbursedDate : null,
+        assignedTo: '2',
+        assignedToName: 'Priyanka Sharma',
+        leadHistory: '6-1-2020:Document Pending|8-1-2020:Case Logged in|10-1-2020:Verification Pending|12-1-2020:Verification Done|14-1-2020:Verification Pending|17-1-2020:Case Approved|20-1-2020:Case Disbursed',
+        leadRemarks: '6-1-2020:Customer is busy|8-1-2020:Customer will provide the documents|10-1-2020:Customer not reachable|12-1-2020:provided documents|14-1-2020:callback requested by customer'
       },
       {
         leadId : '10',
@@ -276,7 +312,11 @@ export class LeadsService {
         disbursedAmount : 0,
         loginDate : '6-1-2020',
         sanctionDate : null,
-        disbursedDate : null
+        disbursedDate : null,
+        assignedTo: '2',
+        assignedToName: 'Priyanka Sharma',
+        leadHistory: '6-1-2020:Document Pending|8-1-2020:Case Logged in|10-1-2020:Verification Pending|12-1-2020:Verification Done|14-1-2020:Verification Pending|17-1-2020:Case Approved|20-1-2020:Case Disbursed',
+        leadRemarks: '6-1-2020:Customer is busy|8-1-2020:Customer will provide the documents|10-1-2020:Customer not reachable|12-1-2020:provided documents|14-1-2020:callback requested by customer'
       },
       {
         leadId : '11',
@@ -303,7 +343,11 @@ export class LeadsService {
         disbursedAmount : 0,
         loginDate : '6-1-2020',
         sanctionDate : null,
-        disbursedDate : null
+        disbursedDate : null,
+        assignedTo: '2',
+        assignedToName: 'Priyanka Sharma',
+        leadHistory: '6-1-2020:Document Pending|8-1-2020:Case Logged in|10-1-2020:Verification Pending|12-1-2020:Verification Done|14-1-2020:Verification Pending|17-1-2020:Case Approved|20-1-2020:Case Disbursed',
+        leadRemarks: '6-1-2020:Customer is busy|8-1-2020:Customer will provide the documents|10-1-2020:Customer not reachable|12-1-2020:provided documents|14-1-2020:callback requested by customer'
       }
     ]
   };
@@ -335,7 +379,11 @@ export class LeadsService {
         disbursedAmount : 0,
         loginDate : '6-1-2020',
         sanctionDate : null,
-        disbursedDate : null
+        disbursedDate : null,
+        assignedTo: '2',
+        assignedToName: 'Priyanka Sharma',
+        leadHistory: null,
+        leadRemarks: null
       },
       {
         leadId : '2',
@@ -362,7 +410,11 @@ export class LeadsService {
         disbursedAmount : 0,
         loginDate : '5-1-2020',
         sanctionDate : null,
-        disbursedDate : null
+        disbursedDate : null,
+        assignedTo: '2',
+        assignedToName: 'Priyanka Sharma',
+        leadHistory: '6-1-2020:Document Pending|8-1-2020:Case Logged in|10-1-2020:Verification Pending|12-1-2020:Verification Done|14-1-2020:Verification Pending|17-1-2020:Case Approved|20-1-2020:Case Disbursed',
+        leadRemarks: '6-1-2020:Customer is busy|8-1-2020:Customer will provide the documents|10-1-2020:Customer not reachable|12-1-2020:provided documents provided documents provided documents provided documents provided documents provided documents|14-1-2020:callback requested by customer|6-1-2020:Customer is busy|8-1-2020:Customer will provide the documents|10-1-2020:Customer not reachable|12-1-2020:provided documents|14-1-2020:callback requested by customer'
       },
       {
         leadId : '3',
@@ -389,7 +441,11 @@ export class LeadsService {
         disbursedAmount : 0,
         loginDate : '4-1-2020',
         sanctionDate : null,
-        disbursedDate : null
+        disbursedDate : null,
+        assignedTo: '2',
+        assignedToName: 'Priyanka Sharma',
+        leadHistory: '6-1-2020:Document Pending|8-1-2020:Case Logged in|10-1-2020:Verification Pending|12-1-2020:Verification Done|14-1-2020:Verification Pending|17-1-2020:Case Approved|20-1-2020:Case Disbursed',
+        leadRemarks: '6-1-2020:Customer is busy|8-1-2020:Customer will provide the documents|10-1-2020:Customer not reachable|12-1-2020:provided documents|14-1-2020:callback requested by customer'
       },
       {
         leadId : '4',
@@ -416,7 +472,11 @@ export class LeadsService {
         disbursedAmount : 0,
         loginDate : '6-1-2020',
         sanctionDate : null,
-        disbursedDate : null
+        disbursedDate : null,
+        assignedTo: '2',
+        assignedToName: 'Priyanka Sharma',
+        leadHistory: '6-1-2020:Document Pending|8-1-2020:Case Logged in|10-1-2020:Verification Pending|12-1-2020:Verification Done|14-1-2020:Verification Pending|17-1-2020:Case Approved|20-1-2020:Case Disbursed',
+        leadRemarks: '6-1-2020:Customer is busy|8-1-2020:Customer will provide the documents|10-1-2020:Customer not reachable|12-1-2020:provided documents|14-1-2020:callback requested by customer'
       },
       {
         leadId : '5',
@@ -443,7 +503,11 @@ export class LeadsService {
         disbursedAmount : 0,
         loginDate : '6-1-2020',
         sanctionDate : null,
-        disbursedDate : null
+        disbursedDate : null,
+        assignedTo: '2',
+        assignedToName: 'Priyanka Sharma',
+        leadHistory: '6-1-2020:Document Pending|8-1-2020:Case Logged in|10-1-2020:Verification Pending|12-1-2020:Verification Done|14-1-2020:Verification Pending|17-1-2020:Case Approved|20-1-2020:Case Disbursed',
+        leadRemarks: '6-1-2020:Customer is busy|8-1-2020:Customer will provide the documents|10-1-2020:Customer not reachable|12-1-2020:provided documents|14-1-2020:callback requested by customer'
       },
       {
         leadId : '6',
@@ -470,7 +534,11 @@ export class LeadsService {
         disbursedAmount : 0,
         loginDate : '6-1-2020',
         sanctionDate : null,
-        disbursedDate : null
+        disbursedDate : null,
+        assignedTo: '2',
+        assignedToName: 'Priyanka Sharma',
+        leadHistory: '6-1-2020:Document Pending|8-1-2020:Case Logged in|10-1-2020:Verification Pending|12-1-2020:Verification Done|14-1-2020:Verification Pending|17-1-2020:Case Approved|20-1-2020:Case Disbursed',
+        leadRemarks: '6-1-2020:Customer is busy|8-1-2020:Customer will provide the documents|10-1-2020:Customer not reachable|12-1-2020:provided documents|14-1-2020:callback requested by customer'
       },
       {
         leadId : '7',
@@ -497,7 +565,11 @@ export class LeadsService {
         disbursedAmount : 0,
         loginDate : '6-1-2020',
         sanctionDate : null,
-        disbursedDate : null
+        disbursedDate : null,
+        assignedTo: '2',
+        assignedToName: 'Priyanka Sharma',
+        leadHistory: '6-1-2020:Document Pending|8-1-2020:Case Logged in|10-1-2020:Verification Pending|12-1-2020:Verification Done|14-1-2020:Verification Pending|17-1-2020:Case Approved|20-1-2020:Case Disbursed',
+        leadRemarks: '6-1-2020:Customer is busy|8-1-2020:Customer will provide the documents|10-1-2020:Customer not reachable|12-1-2020:provided documents|14-1-2020:callback requested by customer'
       },
       {
         leadId : '8',
@@ -524,7 +596,11 @@ export class LeadsService {
         disbursedAmount : 0,
         loginDate : '6-1-2020',
         sanctionDate : null,
-        disbursedDate : null
+        disbursedDate : null,
+        assignedTo: '2',
+        assignedToName: 'Priyanka Sharma',
+        leadHistory: '6-1-2020:Document Pending|8-1-2020:Case Logged in|10-1-2020:Verification Pending|12-1-2020:Verification Done|14-1-2020:Verification Pending|17-1-2020:Case Approved|20-1-2020:Case Disbursed',
+        leadRemarks: '6-1-2020:Customer is busy|8-1-2020:Customer will provide the documents|10-1-2020:Customer not reachable|12-1-2020:provided documents|14-1-2020:callback requested by customer'
       },
       {
         leadId : '9',
@@ -551,7 +627,11 @@ export class LeadsService {
         disbursedAmount : 0,
         loginDate : '6-1-2020',
         sanctionDate : null,
-        disbursedDate : null
+        disbursedDate : null,
+        assignedTo: '2',
+        assignedToName: 'Priyanka Sharma',
+        leadHistory: '6-1-2020:Document Pending|8-1-2020:Case Logged in|10-1-2020:Verification Pending|12-1-2020:Verification Done|14-1-2020:Verification Pending|17-1-2020:Case Approved|20-1-2020:Case Disbursed',
+        leadRemarks: '6-1-2020:Customer is busy|8-1-2020:Customer will provide the documents|10-1-2020:Customer not reachable|12-1-2020:provided documents|14-1-2020:callback requested by customer'
       },
       {
         leadId : '10',
@@ -578,7 +658,11 @@ export class LeadsService {
         disbursedAmount : 0,
         loginDate : '6-1-2020',
         sanctionDate : null,
-        disbursedDate : null
+        disbursedDate : null,
+        assignedTo: '2',
+        assignedToName: 'Priyanka Sharma',
+        leadHistory: '6-1-2020:Document Pending|8-1-2020:Case Logged in|10-1-2020:Verification Pending|12-1-2020:Verification Done|14-1-2020:Verification Pending|17-1-2020:Case Approved|20-1-2020:Case Disbursed',
+        leadRemarks: '6-1-2020:Customer is busy|8-1-2020:Customer will provide the documents|10-1-2020:Customer not reachable|12-1-2020:provided documents|14-1-2020:callback requested by customer'
       },
       {
         leadId : '11',
@@ -605,7 +689,11 @@ export class LeadsService {
         disbursedAmount : 0,
         loginDate : '6-1-2020',
         sanctionDate : null,
-        disbursedDate : null
+        disbursedDate : null,
+        assignedTo: '2',
+        assignedToName: 'Priyanka Sharma',
+        leadHistory: '6-1-2020:Document Pending|8-1-2020:Case Logged in|10-1-2020:Verification Pending|12-1-2020:Verification Done|14-1-2020:Verification Pending|17-1-2020:Case Approved|20-1-2020:Case Disbursed',
+        leadRemarks: '6-1-2020:Customer is busy|8-1-2020:Customer will provide the documents|10-1-2020:Customer not reachable|12-1-2020:provided documents provided documents provided documents provided documents provided documents provided documents|14-1-2020:callback requested by customer'
       }
     ]
   };
@@ -618,6 +706,10 @@ export class LeadsService {
 
   public getLeads() {
     return this.allLeads;
+  }
+
+  public getLead(id) {
+    return this.allLeads.data.filter(item => item.leadId === id);
   }
 
   public setLeads(leads) {
@@ -687,6 +779,60 @@ export class LeadsService {
       }
     });
     return {data: returnLeads};
+  }
+
+  assignLead(leadId, assignee, userId) {
+    this.allLeads.data.forEach(item => {
+      if (item.leadId === leadId) {
+        item.assignedToName = assignee;
+        item.assignedTo = userId;
+        item.leadHistory = item.leadHistory + '|' + this.appendLeadhistory(assignee, userId);
+      }
+    });
+    this.leads.data.forEach(item => {
+      if (item.leadId === leadId) {
+        item.assignedToName = assignee;
+        item.assignedTo = userId;
+        item.leadHistory = item.leadHistory + '|' + this.appendLeadhistory(assignee, userId);
+      }
+    });
+  }
+
+  addRemark(leadId, remark) {
+    console.log('27Jan leadId, remark => ', leadId, remark);
+    this.allLeads.data.forEach(item => {
+      if (item.leadId == leadId) {
+        item.leadRemarks = item.leadRemarks + '|' + this.appendLeadRemark(remark);
+      }
+    });
+    this.leads.data.forEach(item => {
+      if (item.leadId == leadId) {
+        item.leadRemarks = item.leadRemarks + '|' + this.appendLeadRemark(remark);
+      }
+    });
+    console.log('27Jan this.allLeads this.leads => ', this.allLeads, this.leads);
+  }
+
+  getLeadRemarks(id) {
+    const leadObj = this.allLeads.data.filter(item => item.leadId == id);
+    return leadObj[0]['leadRemarks'];
+  }
+
+  private getFormatedDate() {
+    const dateObj = new Date();
+    const date = dateObj.getDate();
+    const month = dateObj.getMonth() + 1;
+    const year = dateObj.getFullYear();
+
+    return date + '-' + month + '-' + year;
+  }
+
+  private appendLeadhistory(assignee, userId) {
+    return this.getFormatedDate() + ':' + 'Assigned to ' + assignee + ' (' + userId + ')';
+  }
+
+  private appendLeadRemark(remark) {
+    return this.getFormatedDate() + ':' + remark;
   }
 
 }

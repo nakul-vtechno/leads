@@ -1,4 +1,4 @@
-<div class="row" style="padding-bottom:30px;">
+<div class="row pb-4 pt-5 pr-2 pl-2">
     <div class="col-2" style="display:flex;">
         <span>
             <!-- <input type="text" class="form-control" [(ngModel)]="filters.filterProduct" placeholder="Product" (click)="onFilterClick('productWanted')" (selectItem)="onSelect($event, 'productWanted')" [ngbTypeahead]="search"/> -->
@@ -84,6 +84,7 @@
                 <th scope="col" style="font-weight: 400;" sortable="name" (sort)="onSort($event)">Ceation Date</th>
                 <th scope="col" style="font-weight: 400;" sortable="name" (sort)="onSort($event)">Last Updated On</th>
                 <th scope="col" style="font-weight: 400;" sortable="name" (sort)="onSort($event)">Status</th>
+                <th scope="col" style="font-weight: 400;" sortable="name" (sort)="onSort($event)">Assignet To</th>
                 <th scope="col" style="font-weight: 400;" sortable="name" (sort)="onSort($event)">Actions</th>
                 <th scope="col" sortable="name" (sort)="onSort($event)" style="text-align: center;font-weight: 400;">Select All</th>
             </tr>
@@ -97,7 +98,7 @@
                         <span>{{lead.productWanted}} </span>
                     </td>
                     <td>
-                        <span style="cursor: pointer;" placement="top" [ngbPopover]="popContent" [popoverTitle]="popTitle" (click)="onPopperShowClientDetails(lead)"
+                        <span style="cursor: pointer;" placement="top" [ngbPopover]="popLeadCustomer" [popoverTitle]="'Customer Details'" (click)="onPopperShowClientDetails(lead)"
                         ><span style="float:left;padding-right:5px;"><fa-icon class="color-orange" placement="top" ngbTooltip="Click to View more info" [icon]="faInfoCircle"></fa-icon></span>{{lead.customerName}}</span>
                         
                     </td>
@@ -118,9 +119,13 @@
                         {{lead.currentStatus}}
                     </td>
                     <td>
-                        <fa-icon class="color-teal" placement="top" ngbTooltip="View History" [icon]="faHistory"></fa-icon>&nbsp;
+                        {{lead.assignedToName}}&nbsp;<fa-icon class="color-teal" [icon]="faArrowCircleRight" ngbTooltip="Change Assignee" (click)="openAssignLead(lead.leadId, lead.assignedToName, contentAssignLead)"></fa-icon>
+                    </td>
+                    <td>
+                        <!-- <fa-icon class="color-teal" placement="left" [ngbPopover]="popLeadHistory" [popoverTitle]="'Lead History'" (click)="onPopperShowLeadHistory(lead.leadHistory)" ngbTooltip="View History" [icon]="faHistory"></fa-icon> -->
+                        <fa-icon class="color-teal" placement="top" ngbTooltip="View History" [icon]="faHistory" (click)="openLeadHistory(lead.leadHistory, content)"></fa-icon>&nbsp;
                         <fa-icon (click)="openLead(lead)" class="color-teal" placement="top" ngbTooltip="Edit Lead" [icon]="faEdit"></fa-icon>&nbsp;
-                        <fa-icon class="color-teal" [icon]="faArrowCircleUp"></fa-icon>
+                        <fa-icon class="color-teal" [icon]="faCommentAlt" ngbTooltip="View Remarks" (click)="openLeadRemarks(lead.leadId, lead.leadRemarks, contentRemarks)"></fa-icon>
                     </td>
                     <td style="text-align: center;">
                         <mat-checkbox></mat-checkbox>
@@ -144,24 +149,94 @@
     </select>
 </div>
 
+<!-- ------------------------------------ -->
+<!--               Dialogs                -->
+<!-- ------------------------------------ -->
 <ng-template #content let-modal>
-    <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <div class="modal-header bg-success color-white">
+        <h4 class="modal-title" id="modal-basic-title">Lead History</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div class="modal-body">
-        "This is demo content"
+    <div class="modal-body" *ngIf="popperShowLeadHistory.length > 0" style="position: relative; max-height: 400px;overflow: overlay;">
+        <div class="row" *ngFor="let item of popperShowLeadHistory; last as isLast" style="border-bottom: 1px solid rgba(0,0,0,.14);">
+            <div class="col-3"><span class="badge badge-warning bg-pink font-weight-normal color-white" >{{item[0]}}</span></div>
+            <div class="col-9" style="text-align: right;">{{item[1]}}</div>
+        </div> 
+    </div>
+    <div class="modal-body" *ngIf="popperShowLeadHistory.length == []" style="position: relative; max-height: 400px;overflow: overlay;">
+        No Lead History
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+        <button type="button" ngbAutofocus class="btn bg-dgrey color-white" (click)="modal.close('no')">Close</button>
     </div>
 </ng-template>
 
-<!-- <ng-template #tipContent>Hello, <b>{{popperShowClientDetails | json}}</b>!</ng-template> -->
+<ng-template #contentRemarks let-modal>
+    <div class="modal-header bg-success color-white">
+        <h4 class="modal-title" id="modal-basic-title">Lead Remarks</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body ps" *ngIf="popperShowLeadRemarks.length > 0" style="position: relative; max-height: 400px;overflow: overlay;">
+        <div class="row mt-3 mr-2">
+            <div class="col-12" >
+                <textarea class="form-control" placeholder="Add Remark" [(ngModel)]="remark" aria-label="With textarea"></textarea>
+            </div>
+        </div>
+        <div class="row mt-2 mb-3 mr-2">
+            <div class="col-12 text-align-right text-right" >
+                <button type="button" class="btn bg-success color-white" (click)="addRemark()">Add</button>
+            </div>
+        </div>
+        <div *ngFor="let item of popperShowLeadRemarks; last as isLast">
+            <div class="row">
+                <div class="col-12" ><span class="badge badge-warning bg-pink font-weight-normal color-white" >{{item[0]}}</span></div>
+            </div>
+            <div class="row">
+                <div class="col-12" style="border-bottom: 1px solid rgba(0,0,0,.14);" >{{item[1]}}</div>
+            </div> 
+        </div>
+        
+    </div>
+    <div class="modal-body" *ngIf="popperShowLeadRemarks.length == 0" style="position: relative; max-height: 400px;overflow: overlay;">
+        <div class="row mt-3 mr-2">
+            <div class="col-12" >
+                <textarea class="form-control" placeholder="Add Remark" [(ngModel)]="remark" aria-label="With textarea"></textarea>
+            </div>
+        </div>
+        <div class="row mt-2 mb-3 mr-2">
+            <div class="col-12 text-align-right text-right" >
+                <button type="button" class="btn bg-success color-white" (click)="addRemark()">Add</button>
+            </div>
+        </div>
+        No Lead Remarks
+    </div>
+    <div class="modal-footer">
+        <button type="button" ngbAutofocus class="btn bg-dgrey color-white" (click)="modal.close('no')">Close</button>
+    </div>
+</ng-template>
 
-<ng-template #popContent>
+<ng-template #contentAssignLead let-modal>
+    <div class="modal-header bg-success color-white">
+        <h4 class="modal-title" id="modal-basic-title">Assign User</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body ps" style="position: relative; max-height: 400px;overflow: overlay;">
+        <app-assign-lead ngbAutofocus [leadId]="assignedToLeadId" (closed)="close()"></app-assign-lead>
+        
+    </div>
+</ng-template>
+
+<!-- ------------------------------------ -->
+<!--               Popovers               -->
+<!-- ------------------------------------ -->
+
+<ng-template #popLeadCustomer>
     <!-- Hello, <b>{{popperShowClientDetails | json}}</b>! -->
     <div class="row" style="border-bottom: 1px solid white;">
         <div class="col-6" style="font-weight:600;">Customer Name</div>
@@ -193,8 +268,15 @@
         <!-- <div class="col-4" style="text-align: center;">|</div> -->
         <div class="col-6" style="text-align: right;">{{popperShowClientDetails['monthlyNetIncome']}}</div>
     </div>
-
-
 </ng-template>
+
+<ng-template #popLeadHistory>
+    <!-- Hello, <b>{{popperShowClientDetails | json}}</b>! -->
+    <div class="row" *ngFor="let item of popperShowLeadHistory" style="border-bottom: 1px solid white;">
+        <div class="col-6" style="font-weight:600;">{{item[0]}}</div>
+        <div class="col-6" style="text-align: right;">{{item[1]}}</div>
+    </div>    
+</ng-template>
+
 <ng-template #popTitle>Customer Details</ng-template>
 

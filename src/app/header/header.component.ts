@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SettingsService } from '../services/settings/settings.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  settings: object;
+
+  constructor(private settingsService: SettingsService) { }
 
   ngOnInit() {
+    this.settings = this.settingsService.getSettings();
+    console.log("26jan => ", this.settings);
   }
 
 }

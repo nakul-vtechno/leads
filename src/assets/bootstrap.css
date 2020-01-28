@@ -5885,7 +5885,7 @@
     -ms-flex-pack: end;
     justify-content: flex-end;
     padding: 1rem;
-    border-top: 1px solid #dee2e6;
+    border-top: 1px solid rgba(0,0,0,.42);
     border-bottom-right-radius: 0.3rem;
     border-bottom-left-radius: 0.3rem;
   }
@@ -6200,7 +6200,7 @@
     margin-bottom: 0;
     font-size: 1rem;
     background-color: #ff4081;
-    color: #CDDC39;
+    color: #FFEB3B;
     text-align: center;
     border-bottom: 1px solid #ebebeb;
     border-top-left-radius: calc(0.3rem - 1px);
@@ -6533,6 +6533,10 @@
 
   .bg-pink{
     background-color: #FF595E !important;
+  }
+
+  .bg-dgrey{
+    background-color: #495057 !important;
   }
 
   .color-green{

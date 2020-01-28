@@ -108,6 +108,22 @@
             </mat-card>        
         </div>
     </div>
+    <div class="row">
+        <div class="col-4">
+
+        </div>
+        <div class="col-4 text-right pt-2 font-weight-normal color-teal">
+            Assigned To
+        </div>
+        <div class="col-4">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" value="{{currentLead['assignedToName']}}" aria-label="Nakul Sharma" aria-describedby="basic-addon2">
+                <div class="input-group-append bg-green">
+                  <button class="btn btn-outline-secondary" type="button"><fa-icon class="color-white" [icon]="faPen" ngbTooltip="Change User"></fa-icon></button>
+                </div>
+              </div>
+        </div>
+    </div>
     <form [formGroup]="leadForm">
         <div class="row" style="padding-top:10px;">
             <div class="col-6">
@@ -447,5 +463,5 @@
     </form>
 </div>
 <div class="modal-footer">
-    <button type="button" class="btn bg-pink color-white" (click)="close('Save click')">Save</button>
+    <button type="button" ngbAutofocus class="btn bg-pink color-white" (click)="close('Save click')">Save</button>
 </div>
