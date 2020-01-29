@@ -5,42 +5,89 @@
         <div class="col-8">
             <div class="row" style="margin-bottom: 10px;">
                 <div class="col-2 padding-top-col">
-                    Full Name
+                    Full Name <span class="color-pink">*</span>
                 </div>
                 <div class="col-10">
                     <input class="input-field form-control" type="text" formControlName="userName">
                 </div>
+                <div class="col-12 text-right color-pink" *ngIf="userName.invalid && (userName.dirty || userName.touched)">
+                    Name is required
+                </div>
             </div>
             <div class="row" style="margin-bottom: 10px;">
                 <div class="col-2 padding-top-col">
-                    Email
+                    Email <span class="color-pink">*</span>
                 </div>
                 <div class="col-10">
-                <input class="input-field form-control" type="email" formControlName="userMail">
+                    <input class="input-field form-control" type="email" formControlName="userMail">
+                </div>
+                <div class="col-12 text-right color-pink" *ngIf="userMail.invalid && (userMail.dirty || userMail.touched)">
+                    Email is required
                 </div>
             </div>
             <div class="row" style="margin-bottom: 10px;">
                 <div class="col-2 padding-top-col">
-                    Mobile
+                    Mobile <span class="color-pink">*</span>
                 </div>
                 <div class="col-10">
-                <input class="input-field form-control" type="mobile" formControlName="userMobile">
+                    <input class="input-field form-control" type="mobile" formControlName="userMobile">
+                </div>
+                <div class="col-12 text-right color-pink" *ngIf="userMobile.invalid && (userMobile.dirty || userMobile.touched)">
+                    Mobile number is required
                 </div>
             </div>
             <div class="row" style="margin-bottom: 10px;">
                 <div class="col-2 padding-top-col">
-                    Role
+                    Team Leader <span class="color-pink">*</span>
+                </div>
+                <div class="col-10">
+                    <div class="input-group mb-3">
+                        <input type="text" class="input-field form-control" formControlName="userTeamLead" aria-label="Nakul Sharma" aria-describedby="basic-addon2">
+                        <div class="input-group-append bg-green">
+                            <button class="btn btn-outline-secondary color-white" (click)="openAssignTeamLead(AssignTeamLead)" type="button">Select</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 text-right color-pink" *ngIf="userTeamLead.invalid && (userTeamLead.dirty || userTeamLead.touched)">
+                    Please assign Team Leader
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-2 padding-top-col">
+                    Manager <span class="color-pink">*</span>
+                </div>
+                <div class="col-10">
+                    <div class="input-group mb-3">
+                        <input type="text" class="input-field form-control" formControlName="userManager" aria-label="Nakul Sharma" aria-describedby="basic-addon2">
+                        <div class="input-group-append bg-green">
+                            <button class="btn btn-outline-secondary color-white" (click)="openAssignManager(AssignManager)" type="button">Select</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 text-right color-pink" *ngIf="userManager.invalid && (userManager.dirty || userManager.touched)">
+                    Please assign Manager
+                </div>
+            </div>
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-2 padding-top-col">
+                    Role <span class="color-pink">*</span>
                 </div>
                 <div class="col-10">
                     <ngx-select-dropdown style="width:100%" class="input-field" (change)="selectionChanged($event)" formControlName="userRole" [multiple]="false" [config]="{}" [options]="availableRoles"></ngx-select-dropdown>
                 </div>
+                <div class="col-12 text-right color-pink" *ngIf="userRole.invalid && (userRole.dirty || userRole.touched)">
+                    Please select Role
+                </div>
             </div>
             <div class="row" style="margin-bottom: 10px;">
                 <div class="col-2 padding-top-col">
-                    Status
+                    Status <span class="color-pink">*</span>
                 </div>
                 <div class="col-10">
                     <ngx-select-dropdown style="width:100%" class="input-field" (change)="selectionChanged($event)" formControlName="userStauts" [multiple]="false" [config]="{}" [options]="stauses"></ngx-select-dropdown>
+                </div>
+                <div class="col-12 text-right color-pink" *ngIf="userStauts.invalid && (userStauts.dirty || userStauts.touched)">
+                    Please select Status
                 </div>
             </div>
             <div class="row" style="margin-bottom: 10px;">
@@ -56,3 +103,26 @@
     </div>
 </form>
 
+<ng-template #AssignTeamLead let-modal>
+    <div class="modal-header bg-success color-white">
+        <h4 class="modal-title" id="modal-basic-title">Assign User</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body ps" style="position: relative; max-height: 400px;overflow: overlay;">
+        <app-assign-team-lead (selected)="selectTeamLead($event)" (closed)="close()"></app-assign-team-lead>
+    </div>
+</ng-template>
+
+<ng-template #AssignManager let-modal>
+    <div class="modal-header bg-success color-white">
+        <h4 class="modal-title" id="modal-basic-title">Assign User</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body ps" style="position: relative; max-height: 400px;overflow: overlay;">
+        <app-assign-team-lead (selected)="selectManager($event)" (closed)="close()"></app-assign-team-lead>
+    </div>
+</ng-template>

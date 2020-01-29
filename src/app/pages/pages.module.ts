@@ -11,6 +11,7 @@ import { MatIconModule} from '@angular/material/icon';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatCheckboxModule} from '@angular/material/checkbox';
 import { ManageSettingsComponent } from './manage-settings/manage-settings.component';
+import { CommonUiModule } from '../commonui/commonui.module';
 
 
 
@@ -24,7 +25,8 @@ import { ManageSettingsComponent } from './manage-settings/manage-settings.compo
     SelectDropDownModule,
     MatIconModule,
     FontAwesomeModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    CommonUiModule
   ],
   entryComponents: [AddUserComponent]
 })

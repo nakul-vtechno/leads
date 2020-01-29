@@ -1,0 +1,16 @@
+<div class="row mb-4">
+    <div class="col-9">
+        <input class="input-field form-control" placeholder="Search Users" [(ngModel)]="filterValue" (ngModelChange)="filterUsers($event)" type="text">
+    </div>
+    <div class="col-3">
+        <button type="button" class="btn bg-pink color-white" style="width:80%;" (click)="clearFilterInput()">Clear</button>
+    </div>
+</div>
+<div class="row mb-2" *ngFor="let user of filteredUsers; let i = index">
+    <div class="col-9">
+        {{user}}
+    </div>
+    <div class="col-3">
+        <button type="button" (click)="assign(user, i)" class="btn btn-success color-white" style="width:80%;">Select</button>
+    </div>
+</div>

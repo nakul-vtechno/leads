@@ -13,3 +13,7 @@
 .ngx-dropdown-container{
     background-color: #E0F2F1 !important;
 }
+
+.invalid-input{
+    border-color: #dc3545 !important;
+}

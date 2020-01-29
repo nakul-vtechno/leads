@@ -18,9 +18,11 @@ import { SelectDropDownModule } from 'ngx-select-dropdown';
 import { AddLeadComponent } from './add-lead/add-lead.component';
 import { MatChipsModule } from '@angular/material/chips';
 import { AssignLeadComponent } from './assign-lead/assign-lead.component';
+import { AssignTeamLeadComponent } from './assign-team-lead/assign-team-lead.component';
+import { AssignManagerComponent } from './assign-manager/assign-manager.component';
 
 @NgModule({
-  declarations: [DashboardGridComponent, EditLeadComponent, AddLeadComponent, AssignLeadComponent],
+  declarations: [DashboardGridComponent, EditLeadComponent, AddLeadComponent, AssignLeadComponent, AssignTeamLeadComponent, AssignManagerComponent],
   imports: [
     CommonModule,
     MatCheckboxModule,
@@ -39,8 +41,9 @@ import { AssignLeadComponent } from './assign-lead/assign-lead.component';
     NgxPopperModule.forRoot({placement: 'bottom'})
   ],
   exports: [
-    DashboardGridComponent
+    DashboardGridComponent,
+    AssignTeamLeadComponent
   ],
-  entryComponents: [EditLeadComponent, AddLeadComponent]
+  entryComponents: [EditLeadComponent, AddLeadComponent, AssignManagerComponent]
 })
 export class CommonUiModule { }
