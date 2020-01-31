@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -16,133 +17,31 @@ export class UsersService {
 
   private currentUser = null;
 
-  public allUsers = [{
-    id : 5,
-    userName : 'Nakul Member',
-    userMail : 'member@member.com',
-    userMobile : '9910708092',
-    userRole : 'member',
-    userRoleId : 5,
-    userTeamLead : 4,
-    userManager : 3,
-    userStauts : true
-  },
-  {
-    id : 4,
-    userName : 'Nakul Lead',
-    userMail : 'lead@lead.com',
-    userMobile : '9910708092',
-    userRole : 'lead',
-    userRoleId : 4,
-    userTeamLead : 10,
-    userManager : 20,
-    userStauts : true
-  },
-  {
-    id : 3,
-    userName : 'Nakul Manager',
-    userMail : 'manager@manager.com',
-    userMobile : '9910708092',
-    userRole : 'manager',
-    userRoleId : 3,
-    userTeamLead : 10,
-    userManager : 20,
-    userStauts : true
-  },
-  {
-    id : 2,
-    userName : 'Nakul Sub Admin',
-    userMail : 'sadmin@sadmin.com',
-    userMobile : '9910708092',
-    userRole : 'sadmin',
-    userRoleId : 4,
-    userTeamLead : 10,
-    userManager : 20,
-    userStauts : true
-  },
-  {
-    id : 1,
-    userName : 'Nakul Admin',
-    userMail : 'admin@admin.com',
-    userMobile : '9910708092',
-    userRole : 'admin',
-    userRoleId : 1,
-    userTeamLead : 10,
-    userManager : 20,
-    userStauts : true
-  },
-  {
-    id : 6,
-    userName : 'Nakul Viewer',
-    userMail : 'viewer@viewer.com',
-    userMobile : '9910708092',
-    userRole : 'viewer',
-    userRoleId : 6,
-    userTeamLead : 10,
-    userManager : 20,
-    userStauts : true
-  },
- // ------------------- Users Members
-  {
-    id : 7,
-    userName : 'Nakul M1',
-    userMail : 'm1@m1.com',
-    userMobile : '9910708092',
-    userRole : 'member',
-    userRoleId : 5,
-    userTeamLead : 4,
-    userManager : 3,
-    userStauts : true
-  },
-  {
-    id : 8,
-    userName : 'Nakul M1',
-    userMail : 'm1@m1.com',
-    userMobile : '9910708092',
-    userRole : 'member',
-    userRoleId : 5,
-    userTeamLead : 4,
-    userManager : 3,
-    userStauts : true
-  },
-  {
-    id : 9,
-    userName : 'Nakul M1',
-    userMail : 'm1@m1.com',
-    userMobile : '9910708092',
-    userRole : 'member',
-    userRoleId : 5,
-    userTeamLead : 4,
-    userManager : 3,
-    userStauts : true
-  },
-  {
-    id : 10,
-    userName : 'Nakul M1',
-    userMail : 'm1@m1.com',
-    userMobile : '9910708092',
-    userRole : 'member',
-    userRoleId : 5,
-    userTeamLead : 4,
-    userManager : 3,
-    userStauts : true
-  },
-  {
-    id : 11,
-    userName : 'Nakul M1',
-    userMail : 'm1@m1.com',
-    userMobile : '9910708092',
-    userRole : 'member',
-    userRoleId : 5,
-    userTeamLead : 4,
-    userManager : 3,
-    userStauts : true
-  }];
+  public allUsers = [];
 
-  constructor() { }
+  constructor(private http: HttpClient) {}
 
   public getUsers() {
+    this.fetchUsers().subscribe((data) => {
+      data.forEach((item) => {
+        this.allUsers.push({
+          id : item.id,
+          userName : item.user_name,
+          userMail : item.user_mail,
+          userMobile : item.user_mobile,
+          userRole : item.user_role,
+          userRoleId : item.user_role_id,
+          userTeamLead : item.user_team_lead,
+          userManager : item.user_manager,
+          userStauts : item.user_status
+        });
+      });
+    });
     return this.allUsers;
+  }
+
+  public fetchUsers() {
+    return this.http.get('http://localhost:3000/users');
   }
 
   public getUser(id) {
