@@ -51,11 +51,13 @@ export class DashboardGridComponent implements OnInit {
               private editLead: EditLeadComponent) { }
 
   ngOnInit() {
-    this.allLeads = this.leadsService.getLeads();
-    this.collectionSize = this.allLeads.data.length;
-    // this.leads = JSON.stringify(JSON.parse(this.allLeads));
-    this.leads = this.allLeads.data.slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
-    console.log('9Jan => ', this.leads);
+    this.leadsService.getLeads().subscribe((data) => {
+      this.allLeads = data;
+      this.collectionSize = this.allLeads.data.length;
+      // this.leads = JSON.stringify(JSON.parse(this.allLeads));
+      this.leads = this.allLeads.data.slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
+      console.log('9Jan => ', this.leads);
+    });
   }
 
   onSort(event) {
@@ -169,7 +171,13 @@ export class DashboardGridComponent implements OnInit {
     }
 
     close() {
-      this.modalService.dismissAll();
+        this.leadsService.getLeads().subscribe((data) => {
+          this.allLeads = data;
+          this.collectionSize = this.allLeads.data.length;
+          console.log('all leads == ', this.allLeads);
+          this.leads = this.allLeads.data.slice((this.page - 1) * this.pageSize, (this.page - 1) * this.pageSize + this.pageSize);
+          this.modalService.dismissAll();
+        });
     }
 
     private getDismissReason(reason: any): string {

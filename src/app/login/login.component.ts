@@ -38,8 +38,13 @@ export class LoginComponent implements OnInit {
     if (isValidUser) {
       this.usersService.setCurrentUser(isValidUser[0]);
       setTimeout(() => {
+        localStorage.setItem('user', JSON.stringify(isValidUser[0]));
+        JSON.parse(localStorage.getItem('user'));
         this.router.navigate(['/dashboard/']);
       }, 2000);
+    } else {
+      localStorage.setItem('user', null);
+      JSON.parse(localStorage.getItem('user'));
     }
   }
 

@@ -20,6 +20,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { AssignLeadComponent } from './assign-lead/assign-lead.component';
 import { AssignTeamLeadComponent } from './assign-team-lead/assign-team-lead.component';
 import { AssignManagerComponent } from './assign-manager/assign-manager.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [DashboardGridComponent, EditLeadComponent, AddLeadComponent, AssignLeadComponent, AssignTeamLeadComponent, AssignManagerComponent],
@@ -38,6 +39,7 @@ import { AssignManagerComponent } from './assign-manager/assign-manager.componen
     DropdownModule,
     SelectDropDownModule,
     MatChipsModule,
+    HttpClientModule,
     NgxPopperModule.forRoot({placement: 'bottom'})
   ],
   exports: [

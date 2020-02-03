@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -12,14 +12,15 @@ export class LeadsService {
 
   currentLead = null;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient ) { }
 
   public getLeads() {
-    this.fetchLeads().subscribe((data) => {
-      this.allLeads = data;
-      this.leads = data;
-    });
-    return this.allLeads;
+    return this.fetchLeads();
+    // this.fetchLeads().subscribe((data) => {
+    //   this.allLeads = data;
+    //   this.leads = data;
+    // });
+    // return this.allLeads;
   }
 
   public getLead(id) {
@@ -43,7 +44,7 @@ export class LeadsService {
   }
 
   public getLeadsByParam(param, value) {
-    const returnData = this.leads.data.filter(item => item[param].toLowerCase() == value.toLowerCase());
+    const returnData = this.leads.data.filter(item => item[param].toLowerCase() === value.toLowerCase());
     this.leads = {data: returnData};
     return {data: returnData};
   }
@@ -101,21 +102,31 @@ export class LeadsService {
 
   assignLead(leadId, assignee, userId) {
     console.log('31jan leadId, assignee, userId => ', leadId, assignee, userId);
-    this.allLeads.data.forEach(item => {
-      if (item.leadId == leadId) {
-        item.assignedToName = assignee;
-        item.assignedTo = userId;
-        item.leadHistory = item.leadHistory + '|' + this.appendLeadhistory(assignee, userId);
-      }
-    });
-    this.leads.data.forEach(item => {
-      if (item.leadId == leadId) {
-        item.assignedToName = assignee;
-        item.assignedTo = userId;
-        item.leadHistory = item.leadHistory + '|' + this.appendLeadhistory(assignee, userId);
-      }
-    });
-    console.log('31jan this.allLeads => ', this.allLeads);
+
+    // const httpOptions = {
+    //   headers: new HttpHeaders({
+    //     'Content-Type':  'application/json',
+    //     'Access-Control-Allow-Origin': 'http://localhost:4200',
+    //     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+    //     'Access-Control-Allow-Credentials' : true
+    //   })
+    // };
+
+    return this.http.put('http://localhost:3000/lead', {'leadId': leadId, 'assignee': userId, 'assignedToName': assignee});
+    // this.allLeads.data.forEach(item => {
+    //   if (item.leadId == leadId) {
+    //     item.assignedToName = assignee;
+    //     item.assignedTo = userId;
+    //     item.leadHistory = item.leadHistory + '|' + this.appendLeadhistory(assignee, userId);
+    //   }
+    // });
+    // this.leads.data.forEach(item => {
+    //   if (item.leadId == leadId) {
+    //     item.assignedToName = assignee;
+    //     item.assignedTo = userId;
+    //     item.leadHistory = item.leadHistory + '|' + this.appendLeadhistory(assignee, userId);
+    //   }
+    // });
   }
 
   addRemark(leadId, remark) {
@@ -134,7 +145,7 @@ export class LeadsService {
   }
 
   getLeadRemarks(id) {
-    const leadObj = this.allLeads.data.filter(item => item.leadId == id);
+    const leadObj = this.allLeads.data.filter(item => item.leadId === id);
     return leadObj[0]['leadRemarks'];
   }
 

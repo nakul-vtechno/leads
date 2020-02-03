@@ -61,7 +61,7 @@ export class UsersService {
   }
 
   public getCurrntUser() {
-    return this.currentUser;
+    return this.currentUser || JSON.parse(localStorage.getItem('user'));
   }
 
   public getTeamUsers(id, type) {

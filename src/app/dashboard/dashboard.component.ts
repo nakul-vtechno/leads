@@ -15,7 +15,7 @@ import { UsersService } from '../services/users/users.service';
 export class DashboardComponent implements OnInit {
 
   public products: Array<object>;
-  public leads: Array<object>;
+  public leads: any;
   public clients: Array<object>;
   public chart: any;
   public chartOptions: any;
@@ -125,8 +125,10 @@ export class DashboardComponent implements OnInit {
   ];
     this.user = this.usersService.getCurrntUser();
     this.products = this.productService.getProducts().data;
-    this.leads = this.leadsService.getLeads().data;
-    this.prepareLeadsChart();
+    this.leadsService.getLeads().subscribe((data) => {
+      this.leads = data;
+      this.prepareLeadsChart(this.leads.data);
+    });
     this.clients = this.clientsService.getClients().data;
     console.log('leads => ', this.leads);
 
@@ -184,8 +186,8 @@ export class DashboardComponent implements OnInit {
     console.log('this.team => ', this.team);
 }
 
-  public prepareLeadsChart() {
-    this.leads.forEach((item) => {
+  public prepareLeadsChart(leads) {
+    leads.forEach((item) => {
       if (item['currentStatus'] === 'Verification Pending') {
         this.seriesLeadStatus['Verification Pending'] = this.seriesLeadStatus['Verification Pending'] + 1;
       }

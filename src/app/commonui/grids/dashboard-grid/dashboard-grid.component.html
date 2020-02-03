@@ -84,7 +84,7 @@
                 <th scope="col" style="font-weight: 400;" sortable="name" (sort)="onSort($event)">Ceation Date</th>
                 <th scope="col" style="font-weight: 400;" sortable="name" (sort)="onSort($event)">Last Updated On</th>
                 <th scope="col" style="font-weight: 400;" sortable="name" (sort)="onSort($event)">Status</th>
-                <th scope="col" style="font-weight: 400;" sortable="name" (sort)="onSort($event)">Assignet To</th>
+                <th scope="col" style="font-weight: 400;" sortable="name" (sort)="onSort($event)">Assigned To</th>
                 <th scope="col" style="font-weight: 400;" sortable="name" (sort)="onSort($event)">Actions</th>
                 <th scope="col" sortable="name" (sort)="onSort($event)" style="text-align: center;font-weight: 400;">Select All</th>
             </tr>
@@ -109,10 +109,10 @@
                         ₹{{lead.requiredProductValue}}
                     </td>
                     <td>
-                        {{lead.leadCreationDate}}
+                        {{lead.leadCreationDate | date:'mediumDate'}}
                     </td>
                     <td>
-                        {{lead.lastStatusChangeDate}}
+                        {{lead.lastStatusChangeDate  | date:'mediumDate'}}
                             
                     </td>
                     <td>
@@ -161,8 +161,8 @@
     </div>
     <div class="modal-body" *ngIf="popperShowLeadHistory.length > 0" style="position: relative; max-height: 400px;overflow: overlay;">
         <div class="row" *ngFor="let item of popperShowLeadHistory; last as isLast" style="border-bottom: 1px solid rgba(0,0,0,.14);">
-            <div class="col-3"><span class="badge badge-warning bg-pink font-weight-normal color-white" >{{item[0]}}</span></div>
-            <div class="col-9" style="text-align: right;">{{item[1]}}</div>
+            <div class="col-2"><span class="badge badge-warning bg-pink font-weight-normal color-white" >{{item[0]}}</span></div>
+            <div class="col-10" style="text-align: right;font-size: 14px;">{{item[1]}}</div>
         </div> 
     </div>
     <div class="modal-body" *ngIf="popperShowLeadHistory.length == []" style="position: relative; max-height: 400px;overflow: overlay;">
@@ -272,8 +272,8 @@
 <ng-template #popLeadHistory>
     <!-- Hello, <b>{{popperShowClientDetails | json}}</b>! -->
     <div class="row" *ngFor="let item of popperShowLeadHistory" style="border-bottom: 1px solid white;">
-        <div class="col-6" style="font-weight:600;">{{item[0]}}</div>
-        <div class="col-6" style="text-align: right;">{{item[1]}}</div>
+        <div class="col-2" style="font-weight:600;">{{item[0]}}</div>
+        <div class="col-10" style="text-align: right;">{{item[1]}}</div>
     </div>    
 </ng-template>
 

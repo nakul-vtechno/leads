@@ -13,6 +13,7 @@ export class AssignLeadComponent implements OnInit {
   public filteredUsers: any;
   public filteredId: any;
   public filterValue: any;
+  public saving = false;
   @Input() leadId: any;
   @Input() leadAssignee: any;
   @Output() closed: EventEmitter<any> = new EventEmitter();
@@ -35,8 +36,15 @@ export class AssignLeadComponent implements OnInit {
   }
 
   public assign(name, id) {
-    this.leadsService.assignLead(this.leadId, name, id);
-    this.closePopup();
+    this.saving = true;
+    this.leadsService.assignLead(this.leadId, name, id).subscribe((data) => {
+      console.log('31jan data => ', data);
+      this.closePopup();
+    },
+    (error) => {
+      this.saving = false;
+      console.log('ERROR => ', error);
+    });
   }
 
   public closePopup() {
